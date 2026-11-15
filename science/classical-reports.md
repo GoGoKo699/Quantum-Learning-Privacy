@@ -14,7 +14,7 @@ Set $`d=2^n`$, with $`n\geq 1`$. Choose one Hermitian phase convention for the n
 ```math
 M=|\mathcal P_*|=d^2-1,
 \qquad
-\operatorname{Tr}(PQ)=d\,\mathbf 1_{\{P=Q\}}
+\mathrm{Tr}(PQ)=d\,\mathbf 1_{\{P=Q\}}
 \quad(P,Q\in\mathcal P_*\cup\{I\}).
 ```
 
@@ -87,10 +87,10 @@ Consider one allowed POVM, with its history and current label fixed. For an effe
 
 
 ```math
-q_z=\frac{\operatorname{Tr}E_z}{d},
+q_z=\frac{\mathrm{Tr}E_z}{d},
 \qquad
-v_P(z)=\frac{\operatorname{Tr}(E_zP)}
-{\operatorname{Tr}E_z}.
+v_P(z)=\frac{\mathrm{Tr}(E_zP)}
+{\mathrm{Tr}E_z}.
 ```
 
 
@@ -128,13 +128,13 @@ These bounds are uniform over the POVM and over its conditioning history.
 
 A nonzero effect therefore has strictly positive minimum eigenvalue. Every nonidentity Pauli has equally large $`+1`$ and $`-1`$ eigenspaces. The traces of $`E_z`$ on those two eigenspaces have ratio at most $`r`$. Their normalized difference is $`v_P(z)`$, proving $`|v_P(z)|\leq c`$.
 
-For the second statement let $`F_z=E_z/q_z`$, so $`\operatorname{Tr}F_z=d`$. Pauli orthogonality gives
+For the second statement let $`F_z=E_z/q_z`$, so $`\mathrm{Tr}F_z=d`$. Pauli orthogonality gives
 
 
 ```math
 \sum_{P\in\mathcal P_*}v_P(z)^2
 =
-\frac{\operatorname{Tr}F_z^2}{d}-1.
+\frac{\mathrm{Tr}F_z^2}{d}-1.
 ```
 
 
@@ -142,7 +142,7 @@ The right-hand side is the variance of the eigenvalues of $`F_z`$, whose mean is
 
 
 ```math
-\frac{\operatorname{Tr}F_z^2}{d}-1
+\frac{\mathrm{Tr}F_z^2}{d}-1
 \leq (ra-1)(1-a)
 \leq \frac{(r-1)^2}{4r}.
 ```
@@ -160,7 +160,7 @@ All relative entropies below use natural logarithms. Write
 
 
 ```math
-\operatorname{kl}(u\|v)
+\mathrm{kl}(u\|v)
 =
 u\log\frac uv+(1-u)\log\frac{1-u}{1-v}
 ```
@@ -225,7 +225,7 @@ where $`0<\delta<1/2`$. Then
 N
 \geq
 \frac{L}{2C_\varepsilon}
-\operatorname{kl}\!\left(\frac2L\,\middle\|\,1-\delta\right).
+\mathrm{kl}\!\left(\frac2L\,\middle\|\,1-\delta\right).
 ```
 
 
@@ -245,7 +245,7 @@ For fixed $`\delta`$ and $`0<\varepsilon\leq1`$, the displayed lower bound is $`
 ```math
 D(Q_0\|Q_H)
 \geq
-\operatorname{kl}\!\left(\frac2L\,\middle\|\,1-\delta\right).
+\mathrm{kl}\!\left(\frac2L\,\middle\|\,1-\delta\right).
 ```
 
 
@@ -270,7 +270,7 @@ Conditional on $`T`$, its success probability is exactly
 ```math
 \Pr[\widehat Y=Y\mid H,T]
 =
-\frac12+\frac{\operatorname{Tr}(A_TH)}{2d}.
+\frac12+\frac{\mathrm{Tr}(A_TH)}{2d}.
 ```
 
 
@@ -293,7 +293,7 @@ Whenever $`t_{d,\beta}<b_\beta`$,
 N
 \geq
 \frac{L}{2C_\varepsilon}
-\operatorname{kl}(t_{d,\beta}\|b_\beta).
+\mathrm{kl}(t_{d,\beta}\|b_\beta).
 ```
 
 
@@ -307,7 +307,7 @@ N=\Omega_{\varepsilon,\beta}(d^2)
 
 for fixed $`\varepsilon>0`$. The statement does not require the learner to identify $`H`$ explicitly.
 
-**Proof.** Put $`a_H(T)=\operatorname{Tr}(A_TH)/d`$. The success assumption gives $`\mathbb E_H[a_H(T)]\geq2\beta`$, while $`a_H(T)\leq1`$. Hence
+**Proof.** Put $`a_H(T)=\mathrm{Tr}(A_TH)/d`$. The success assumption gives $`\mathbb E_H[a_H(T)]\geq2\beta`$, while $`a_H(T)\leq1`$. Hence
 
 
 ```math
@@ -324,17 +324,17 @@ For a fixed transcript define the signed Pauli list
 \mathcal L(T)
 =
 \left\{H\in\mathcal H:
-\frac{\operatorname{Tr}(A_TH)}d\geq\beta
+\frac{\mathrm{Tr}(A_TH)}d\geq\beta
 \right\}.
 ```
 
 
-Pauli orthogonality and $`\operatorname{Tr}A_T^2/d\leq1`$ imply
+Pauli orthogonality and $`\mathrm{Tr}A_T^2/d\leq1`$ imply
 
 
 ```math
 \sum_{P\in\mathcal P_*}
-\left(\frac{\operatorname{Tr}(A_TP)}d\right)^2
+\left(\frac{\mathrm{Tr}(A_TP)}d\right)^2
 \leq1.
 ```
 
@@ -386,7 +386,7 @@ Thus the actual released observation is private. Its expectation on target $`H`$
 \mu_Q
 =\mathbb E_H[W]
 =
-c\,\frac{\operatorname{Tr}(QH)}d
+c\,\frac{\mathrm{Tr}(QH)}d
 =
 \begin{cases}
 +c,&Q=H,\\

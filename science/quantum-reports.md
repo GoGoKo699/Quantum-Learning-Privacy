@@ -66,9 +66,9 @@ Let $`\mathcal C_n`$ be the finite Clifford group modulo global phases. For
 each specimen independently, choose $`C\in\mathcal C_n`$ uniformly. Apply
 
 ```math
-\Psi_C=\operatorname{Ad}_{C^\dagger}\circ\Phi\circ
-\operatorname{Ad}_C,
-\qquad \operatorname{Ad}_C(X)=CXC^\dagger,
+\Psi_C=\mathrm{Ad}_{C^\dagger}\circ\Phi\circ
+\mathrm{Ad}_C,
+\qquad \mathrm{Ad}_C(X)=CXC^\dagger,
 ```
 
 and release both the classical value $`C`$ and the quantum system. Thus the
@@ -140,9 +140,9 @@ S_\Phi=
 For unitary conjugation superoperators,
 
 ```math
-\langle\operatorname{Ad}_{U_i},
-\operatorname{Ad}_{U_j}\rangle_{\mathrm{HS(super)}}
-=|\operatorname{Tr}(U_i^\dagger U_j)|^2.
+\langle\mathrm{Ad}_{U_i},
+\mathrm{Ad}_{U_j}\rangle_{\mathrm{HS(super)}}
+=|\mathrm{Tr}(U_i^\dagger U_j)|^2.
 ```
 
 Therefore
@@ -150,7 +150,7 @@ Therefore
 ```math
 S_\Phi=
 \frac1{K^2}\sum_{i,j=1}^K
-|\operatorname{Tr}(U_i^\dagger U_j)|^2
+|\mathrm{Tr}(U_i^\dagger U_j)|^2
 \ \ge\ \frac{d^2}{K}.                                      \tag{5}
 ```
 
@@ -187,7 +187,7 @@ For two targets $`H,G`$ that are not equal up to sign, the mixed inner
 product averages to zero:
 
 ```math
-\mathbb E_C\operatorname{Tr}
+\mathbb E_C\mathrm{Tr}
 \big[\Phi(CHC^\dagger)\Phi(CGC^\dagger)\big]=0.                \tag{7}
 ```
 
@@ -293,7 +293,7 @@ Montanaro's mixed-state **worst-case** PGM bound, Lemma 3 of
 arXiv:1908.08312v2](https://arxiv.org/abs/1908.08312), is
 
 ```math
-\max_H\bigl[1-\operatorname{Tr}(M_H\omega_H)\bigr]
+\max_H\bigl[1-\mathrm{Tr}(M_H\omega_H)\bigr]
 \le\sum_{H\ne G}f(\omega_H,\omega_G).                         \tag{13}
 ```
 

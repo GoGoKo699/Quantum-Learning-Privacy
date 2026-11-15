@@ -57,7 +57,7 @@ After identification, store the signed-Pauli description in $`O(n)`$ bits. On a 
 | Identification samples | $`O_\varepsilon(d\log d)`$ | $`O_\varepsilon(d(\log d)^7)`$ |
 | Setup and decoder time | No efficient bound established | Cheap report gates; no efficient setup, certification or decoder bound established |
 
-Generic dense unitaries are expensive. A conservative finite synthesis decomposes each into $`O(d^2\operatorname{poly}(n))`$ continuous elementary gates, then approximates single-qubit factors over a finite universal set. All $`K`$ compiled circuits must be stored. The sample advantage is not an end-to-end runtime advantage.
+Generic dense unitaries are expensive. A conservative finite synthesis decomposes each into $`O(d^2\mathrm{poly}(n))`$ continuous elementary gates, then approximates single-qubit factors over a finite universal set. All $`K`$ compiled circuits must be stored. The sample advantage is not an end-to-end runtime advantage.
 
 The collective decoder accesses privatized reports only. The direct pretty-good-measurement construction uses $`Nn`$ coherent data qubits and can require additional workspace. Its matrices, precision and compiled gate count may be enormous. Every finite instance is a finite POVM approximable by a finite circuit to fixed error, but no efficient decoder follows. Public flags are ordinary classical inputs to its construction.
 
@@ -115,8 +115,8 @@ This remains pure privacy. For a dense list, compile each $`U_i`$ to a unitary $
 The unitary-channel bound gives
 
 ```math
-\left\|\frac1K\sum_i\operatorname{Ad}_{V_i}
--\frac1K\sum_i\operatorname{Ad}_{U_i}\right\|_\diamond
+\left\|\frac1K\sum_i\mathrm{Ad}_{V_i}
+-\frac1K\sum_i\mathrm{Ad}_{U_i}\right\|_\diamond
 \le2\delta.
 ```
 
@@ -150,7 +150,7 @@ For product datasets differing only in record $`j`$, independent reports obey
 
 Tensoring unchanged positive factors preserves order, as does every collective CPTP map and measurement. Thus coherent decoding preserves the stated record-neighbor guarantee. Identifying population parameter $`H`$ is compatible with it: changing $`H`$ changes all specimens.
 
-This argument does not prove privacy when the changed record is entangled with a retained reference or other raw records. The definition imposed no corresponding inequality on $`\Lambda\otimes\operatorname{id}_R`$ for such joint states. The source and record-neighbor extension use independent specimens; reference-secure privacy is not claimed.
+This argument does not prove privacy when the changed record is entangled with a retained reference or other raw records. The definition imposed no corresponding inequality on $`\Lambda\otimes\mathrm{id}_R`$ for such joint states. The source and record-neighbor extension use independent specimens; reference-secure privacy is not claimed.
 
 ## Sources
 

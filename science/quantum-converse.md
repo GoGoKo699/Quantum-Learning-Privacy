@@ -59,7 +59,7 @@ e^{-\epsilon}\tau\preceq\Lambda(\rho)\preceq e^\epsilon\tau.
 ```
 
 
-Therefore every report, and every $`A_P`$, is supported on $`\operatorname{supp}\tau`$. All inverse powers below are taken only on this support; zero eigenvalues outside it cause no inversion. For any pure state $`\psi=|\psi\rangle\langle\psi|`$, define
+Therefore every report, and every $`A_P`$, is supported on $`\mathrm{supp}\tau`$. All inverse powers below are taken only on this support; zero eigenvalues outside it cause no inversion. For any pure state $`\psi=|\psi\rangle\langle\psi|`$, define
 
 
 ```math
@@ -71,7 +71,7 @@ Equation (Q3) gives $`e^{-\epsilon}I\preceq R_\psi\preceq e^\epsilon I`$. Conseq
 
 
 ```math
-\operatorname{Tr}\!\left[\tau(R_\psi-I)^2\right]
+\mathrm{Tr}\!\left[\tau(R_\psi-I)^2\right]
 \le (e^\epsilon-1)^2.
 \tag{Q4}
 ```
@@ -84,7 +84,7 @@ The normalized Pauli expansion of a pure state is
 
 ```math
 \psi=\frac1d\left(I+\sum_{P\in\mathcal P_*}a_P(\psi)P\right),
-\qquad a_P(\psi)=\operatorname{Tr}(P\psi).
+\qquad a_P(\psi)=\mathrm{Tr}(P\psi).
 ```
 
 
@@ -98,14 +98,14 @@ For Haar-uniform pure $`\psi`$, the standard second-moment identity gives
 ```
 
 
-Indeed, $`\mathbb E\psi^{\otimes2}=(I+F)/[d(d+1)]`$, while $`\operatorname{Tr}P=0`$ and $`\operatorname{Tr}(PQ)=d\delta_{P,Q}`$. A pure-state projective 2-design would give the same equality.
+Indeed, $`\mathbb E\psi^{\otimes2}=(I+F)/[d(d+1)]`$, while $`\mathrm{Tr}P=0`$ and $`\mathrm{Tr}(PQ)=d\delta_{P,Q}`$. A pure-state projective 2-design would give the same equality.
 
 Set $`B_\psi=\Lambda(\psi)-\tau=\sum_P a_P(\psi)A_P`$. Cyclicity of the trace gives the exact identity
 
 
 ```math
-\operatorname{Tr}(B_\psi\tau^{-1}B_\psi)
-=\operatorname{Tr}\!\left[\tau(R_\psi-I)^2\right].
+\mathrm{Tr}(B_\psi\tau^{-1}B_\psi)
+=\mathrm{Tr}\!\left[\tau(R_\psi-I)^2\right].
 \tag{Q6}
 ```
 
@@ -115,7 +115,7 @@ Taking the Haar average, using (Q5), and then (Q4) proves
 
 ```math
 \sum_{P\in\mathcal P_*}
-\operatorname{Tr}(A_P\tau^{-1}A_P)
+\mathrm{Tr}(A_P\tau^{-1}A_P)
 \le(d+1)(e^\epsilon-1)^2.
 \tag{Q7}
 ```
@@ -123,11 +123,11 @@ Taking the Haar average, using (Q5), and then (Q4) proves
 
 Every summand is nonnegative: it equals the squared Hilbert–Schmidt norm of $`\tau^{-1/2}A_P`$. Equation (Q7) is the useful dimension-dependent budget. Privacy bounds the response to every pure input, and the second moment distributes that response among the $`d^2-1`$ Pauli directions.
 
-For the stated improvement of the constant, let $`l=e^{-\epsilon}`$ and $`u=e^\epsilon`$. Since $`(R_\psi-lI)(uI-R_\psi)\succeq0`$ and $`\operatorname{Tr}(\tau R_\psi)=1`$, one has
+For the stated improvement of the constant, let $`l=e^{-\epsilon}`$ and $`u=e^\epsilon`$. Since $`(R_\psi-lI)(uI-R_\psi)\succeq0`$ and $`\mathrm{Tr}(\tau R_\psi)=1`$, one has
 
 
 ```math
-\operatorname{Tr}\!\left[\tau(R_\psi-I)^2\right]
+\mathrm{Tr}\!\left[\tau(R_\psi-I)^2\right]
 \le (u-1)(1-l)=4\sinh^2(\epsilon/2).
 ```
 
@@ -136,13 +136,13 @@ The rest of the proof is unchanged.
 
 ## From the quadratic budget to relative entropy
 
-For density matrices $`\omega,\tau`$ with $`\operatorname{supp}\omega\subseteq\operatorname{supp}\tau`$, the standard order-two Petz bound is
+For density matrices $`\omega,\tau`$ with $`\mathrm{supp}\omega\subseteq\mathrm{supp}\tau`$, the standard order-two Petz bound is
 
 
 ```math
 D(\omega\Vert\tau)
-\le \log\operatorname{Tr}(\omega^2\tau^{-1})
-\le \operatorname{Tr}\!\left[(\omega-\tau)\tau^{-1}(\omega-\tau)\right].
+\le \log\mathrm{Tr}(\omega^2\tau^{-1})
+\le \mathrm{Tr}\!\left[(\omega-\tau)\tau^{-1}(\omega-\tau)\right].
 \tag{Q8}
 ```
 
@@ -161,11 +161,11 @@ Concavity of $`\log`$ bounds this by
 
 ```math
 \log\sum_{i,j}\frac{p_i^2}{q_j}|\langle u_i|v_j\rangle|^2
-=\log\operatorname{Tr}(\omega^2\tau^{-1}).
+=\log\mathrm{Tr}(\omega^2\tau^{-1}).
 ```
 
 
-Finally, $`\log x\le x-1`$ and $`\operatorname{Tr}\omega=\operatorname{Tr}\tau=1`$ give the second inequality in (Q8). The quadratic expression is the Petz chi-squared divergence; it is not a commuting-state substitution.
+Finally, $`\log x\le x-1`$ and $`\mathrm{Tr}\omega=\mathrm{Tr}\tau=1`$ give the second inequality in (Q8). The quadratic expression is the Petz chi-squared divergence; it is not a commuting-state substitution.
 
 For a fixed public label $`y`$, the output for $`H=sP`$ is $`\omega_{sP}=\tau+ysA_P`$. Its average over uniform signed $`H`$ is exactly $`\tau`$. Applying (Q8) to every alternative and then (Q7),
 
@@ -176,7 +176,7 @@ For a fixed public label $`y`$, the output for $`H=sP`$ is $`\omega_{sP}=\tau+ys
 &=\frac1{2M}\sum_{P\in\mathcal P_*}\sum_{s=\pm1}
 D(\tau+ysA_P\Vert\tau)\\
 &\le\frac1M\sum_{P\in\mathcal P_*}
-\operatorname{Tr}(A_P\tau^{-1}A_P)\\
+\mathrm{Tr}(A_P\tau^{-1}A_P)\\
 &\le\frac{(e^\epsilon-1)^2}{d-1}.
 \end{aligned}
 \tag{Q9}

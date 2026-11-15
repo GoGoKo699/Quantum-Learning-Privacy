@@ -9,8 +9,8 @@ The resulting sample separation survives every fixed positive local-privacy leve
 Let $`n\ge1`$, $`d=2^n`$, and let $`\mathcal P_*`$ contain one Hermitian representative of each nonidentity $`n`$-qubit Pauli operator. Its members obey
 
 ```math
-P^2=I,\qquad \operatorname{Tr}P=0,\qquad
-\operatorname{Tr}(PQ)=d\,\mathbf 1_{\{P=Q\}}.
+P^2=I,\qquad \mathrm{Tr}P=0,\qquad
+\mathrm{Tr}(PQ)=d\,\mathbf 1_{\{P=Q\}}.
 ```
 
 There are $`d^2-1`$ such representatives. The unknown target is a signed Pauli
