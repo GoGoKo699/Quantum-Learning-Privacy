@@ -4,6 +4,8 @@ Story: every owner releases one locally private version of the same native quant
 
 Entry: README.md, then science/model.md. The model file owns common notation, privacy/flag definition, local-access promises, tasks, exact asymptotic scope and theorem table.
 
+Study: learning/README.md, learning/WATROUS_BRIDGE.md, and learning/MILESTONES.md. The single educational anchor is John Watrous, The Theory of Quantum Information (2018). The bridge gives selective section pointers and local project derivations. The common map contains exactly M01–M30:14 background/preliminaries and16 narrative/innovation targets. It is independent of a reader's assessment history. Research papers in references/ are proof dependencies and attribution, not additional educational anchors.
+
 Proof routes:
 - Adaptive classical private identification or prediction: science/classical-reports.md. It owns private-effect Pauli energy, reverse-KL chain rule, test-observable/list reduction and noisy tournament.
 - Quantum construction and worst-target error: science/quantum-reports.md. It owns actual flagged QLDP, short randomizer response energy, Clifford signs, root fidelity and the PGM bound.
