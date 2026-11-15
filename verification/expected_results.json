@@ -1,0 +1,161 @@
+{
+  "bounded_spectrum_bures_bound": {
+    "cases": 240,
+    "dimensions": [
+      2,
+      3,
+      4,
+      8
+    ],
+    "equal_state_endpoint_checked": true,
+    "etas": [
+      0.05,
+      0.4,
+      0.8
+    ],
+    "maximum_rhs_over_fidelity_gap": 0.961269855,
+    "minimum_fidelity_gap_minus_rhs": 2.113e-06,
+    "trials_per_setting": 20
+  },
+  "complete_snapshot_and_averaged_state": {
+    "averaged_quantum_channel": "(I + rho)/3",
+    "averaged_quantum_channel_pure_ldp_epsilon": "log(2)",
+    "averaged_quantum_output_spectral_interval": [
+      "1/3",
+      "2/3"
+    ],
+    "complete_record_event": "axis=Z, sign=+",
+    "complete_record_pure_ldp_epsilon": "infinite",
+    "event_probability_on_one": "0",
+    "event_probability_on_zero": "1/3",
+    "finite_input_states_checked": 6,
+    "finite_ordered_input_pairs_checked": 36,
+    "maximum_channel_formula_absolute_error": 0.0,
+    "minimum_domination_eigenvalue": 0.0
+  },
+  "noncommuting_quantum_information_budget": {
+    "absolute_tolerance": 2e-10,
+    "finite_cases": [
+      {
+        "analytic_all_input_privacy_bound": "log(19/6)",
+        "analytic_output_spectral_enclosure_on_support": [
+          "6/25",
+          "19/25"
+        ],
+        "channel_nonunitality_frobenius_norm": 0.466476152,
+        "epsilon_nats": 1.15267951,
+        "haar_pauli_quadratic_budget_identity_error": 0.0,
+        "maximum_exact_design_second_moment_error": 0.0,
+        "maximum_kraus_completeness_error": 0.0,
+        "maximum_noncommuting_whitening_identity_error": 0.0,
+        "maximum_pauli_coefficient_covariance_error": 0.0,
+        "maximum_reference_report_commutator_norm": 0.036133087,
+        "maximum_relative_entropy_minus_chi_squared": -0.008568748,
+        "minimum_finite_output_enclosure_margin": 0.019194906,
+        "minimum_finite_reference_domination_margin": 0.153179065,
+        "one_report_holevo_nats": 0.011184311,
+        "one_report_mean_petz_chi_squared": 0.023339318,
+        "output_dimension": 2,
+        "pauli_quadratic_budget": 0.070017953,
+        "privacy_certified_by_mixture_spectral_bounds": true,
+        "pure_design_states": 6,
+        "random_all_input_certification": false,
+        "reference_support_rank": 2,
+        "sharpened_budget_bound": 4.447368421,
+        "simple_budget_bound": 14.083333333,
+        "uniform_signed_target_mean_error": 0.0
+      },
+      {
+        "analytic_all_input_privacy_bound": "log(19/6)",
+        "analytic_output_spectral_enclosure_on_support": [
+          "6/25",
+          "19/25"
+        ],
+        "channel_nonunitality_frobenius_norm": 0.466476152,
+        "epsilon_nats": 1.15267951,
+        "haar_pauli_quadratic_budget_identity_error": 0.0,
+        "maximum_exact_design_second_moment_error": 0.0,
+        "maximum_kraus_completeness_error": 0.0,
+        "maximum_noncommuting_whitening_identity_error": 0.0,
+        "maximum_pauli_coefficient_covariance_error": 0.0,
+        "maximum_reference_report_commutator_norm": 0.036133087,
+        "maximum_relative_entropy_minus_chi_squared": -0.008568748,
+        "minimum_finite_output_enclosure_margin": 0.019194906,
+        "minimum_finite_reference_domination_margin": 0.153179065,
+        "one_report_holevo_nats": 0.011184311,
+        "one_report_mean_petz_chi_squared": 0.023339318,
+        "output_dimension": 4,
+        "pauli_quadratic_budget": 0.070017953,
+        "privacy_certified_by_mixture_spectral_bounds": true,
+        "pure_design_states": 6,
+        "random_all_input_certification": false,
+        "reference_support_rank": 2,
+        "sharpened_budget_bound": 4.447368421,
+        "simple_budget_bound": 14.083333333,
+        "uniform_signed_target_mean_error": 0.0
+      }
+    ],
+    "isometric_invariants_checked": [
+      "pauli_quadratic_budget",
+      "one_report_holevo_nats",
+      "one_report_mean_petz_chi_squared",
+      "channel_nonunitality_frobenius_norm",
+      "maximum_reference_report_commutator_norm"
+    ],
+    "rounding_decimal_places": 9,
+    "schema_version": 1,
+    "singular_reference_support_checked": true
+  },
+  "private_povm_bounds": {
+    "cases": 240,
+    "dimensions": [
+      2,
+      4,
+      8
+    ],
+    "epsilons": [
+      0.05,
+      0.5,
+      1.0,
+      2.0
+    ],
+    "families": [
+      "basis_randomized_response",
+      "weighted_rank_one"
+    ],
+    "maximum_absolute_signal_over_bound": 0.999585885,
+    "maximum_pauli_energy_over_bound": 0.99937526,
+    "maximum_povm_completeness_absolute_error": 0.0,
+    "maximum_signed_likelihood_absolute_error": 0.0,
+    "maximum_signed_reverse_kl_over_bound": 0.999061675,
+    "trials_per_setting": 10
+  },
+  "rounding_decimal_places": 9,
+  "schema_version": 1,
+  "seed": 20261115,
+  "tournament_costs": {
+    "cases": 72,
+    "dimensions": [
+      2,
+      4,
+      8,
+      16,
+      32,
+      256
+    ],
+    "epsilons": [
+      0.1,
+      0.5,
+      1.0,
+      2.0
+    ],
+    "maximum_exact_cost_over_displayed_bound": 0.999953401,
+    "maximum_sum_of_analytic_failure_bounds_over_delta": 0.999851015,
+    "stochastic_success_simulation": false,
+    "target_failures": [
+      0.01,
+      0.1,
+      0.4
+    ]
+  }
+}
