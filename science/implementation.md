@@ -109,7 +109,7 @@ Consequently,
 This remains pure privacy. For a dense list, compile each $`U_i`$ to a unitary $`V_i`$, up to global phase, with
 
 ```math
-\VertU_i-V_i\Vert_\infty\le\delta\le m/(4d).
+\Vert U_i-V_i\Vert_\infty\le\delta\le m/(4d).
 ```
 
 The unitary-channel bound gives

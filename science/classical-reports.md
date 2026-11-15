@@ -160,7 +160,7 @@ All relative entropies below use natural logarithms. Write
 
 
 ```math
-\mathrm{kl}(u\Vertv)
+\mathrm{kl}(u\Vert v)
 =
 u\log\frac uv+(1-u)\log\frac{1-u}{1-v}
 ```
@@ -172,7 +172,7 @@ for binary relative entropy.
 
 
 ```math
-\sum_{H\in\mathcal H}D(Q_0\VertQ_H)
+\sum_{H\in\mathcal H}D(Q_0\Vert Q_H)
 \leq C_\varepsilon N.
 ```
 
@@ -192,7 +192,7 @@ Consequently
 
 ```math
 \begin{aligned}
-D(q\Vertp_{+P})+D(q\Vertp_{-P})
+D(q\Vert p_{+P})+D(q\Vert p_{-P})
 &=
 \mathbb E_q[-\log(1-v_P^2)]\\
 &\leq
@@ -243,7 +243,7 @@ For fixed $`\delta`$ and $`0\lt \varepsilon\leq1`$, the displayed lower bound is
 
 
 ```math
-D(Q_0\VertQ_H)
+D(Q_0\Vert Q_H)
 \geq
 \mathrm{kl}\!\left(\frac2L\,\middle\Vert\,1-\delta\right).
 ```
@@ -293,7 +293,7 @@ Whenever $`t_{d,\beta}\lt b_\beta`$,
 N
 \geq
 \frac{L}{2C_\varepsilon}
-\mathrm{kl}(t_{d,\beta}\Vertb_\beta).
+\mathrm{kl}(t_{d,\beta}\Vert b_\beta).
 ```
 
 

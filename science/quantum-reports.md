@@ -253,7 +253,7 @@ Indeed, choose a unitary $`V`$ attaining Uhlmann's root-fidelity
 variational formula, so for $`A=\sqrt\rho`$ and $`B=\sqrt\sigma V`$,
 
 ```math
-\VertA-B\Vert_2^2=2-2f(\rho,\sigma).
+\Vert A-B\Vert_2^2=2-2f(\rho,\sigma).
 ```
 
 The identity
@@ -267,7 +267,7 @@ and the Schatten-norm product inequality give
 
 ```math
 \Vert\rho-\sigma\Vert_2
-\le(\VertA\Vert_\infty+\VertB\Vert_\infty)\VertA-B\Vert_2
+\le(\Vert A\Vert_\infty+\Vert B\Vert_\infty)\Vert A-B\Vert_2
 \le2\sqrt a\sqrt{2-2f(\rho,\sigma)},
 ```
 
