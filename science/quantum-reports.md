@@ -8,7 +8,7 @@ its surviving information useful for every target Pauli.
 All logarithms below are natural. We write
 
 ```math
-f(\rho,\sigma)=\|\sqrt\rho\sqrt\sigma\|_1
+f(\rho,\sigma)=\Vert\sqrt\rho\sqrt\sigma\Vert_1
 ```
 
 for **root fidelity**. Some references call its square the fidelity. The
@@ -25,7 +25,7 @@ every $`n`$-qubit Pauli, including $`I`$, and put
 \qquad L=|\mathcal H|=2(d^2-1).
 ```
 
-Fix $`0<\eta<1`$ and a list of $`K`$ unitaries defining
+Fix $`0\lt \eta\lt 1`$ and a list of $`K`$ unitaries defining
 
 ```math
 \Phi(X)=\frac1K\sum_{j=1}^K U_j XU_j^\dagger.
@@ -33,10 +33,12 @@ Fix $`0<\eta<1`$ and a list of $`K`$ unitaries defining
 
 Assume the following **all-state operator-randomization guarantee**:
 
+**Equation (1).**
+
 ```math
 \frac{1-\eta}{d}I\ \le\ \Phi(\rho)\ \le\
 \frac{1+\eta}{d}I
-\qquad\text{for every density operator }\rho.                 \tag{1}
+\qquad\text{for every density operator }\rho.
 ```
 
 Assume also $`K\le d^2/2`$. The channel in Section 2 below is
@@ -49,11 +51,13 @@ $`\varepsilon_\eta`$-QLDP, where
 From independently privatized labeled specimens it identifies every
 $`H\in\mathcal H`$ with error at most $`\delta\in(0,1)`$ whenever
 
+**Equation (2).**
+
 ```math
 N\ \ge\
 \left\lceil
 8(1+\eta)K\ln\frac{L(L-1)}{\delta}
-\right\rceil.                                               \tag{2}
+\right\rceil.
 ```
 
 The decoder is the pretty good measurement on the known family of
@@ -66,18 +70,19 @@ Let $`\mathcal C_n`$ be the finite Clifford group modulo global phases. For
 each specimen independently, choose $`C\in\mathcal C_n`$ uniformly. Apply
 
 ```math
-\Psi_C=\operatorname{Ad}_{C^\dagger}\circ\Phi\circ
-\operatorname{Ad}_C,
-\qquad \operatorname{Ad}_C(X)=CXC^\dagger,
+\Psi_C=\mathrm{Ad}_{C^\dagger}\circ\Phi\circ
+\mathrm{Ad}_C,
+\qquad \mathrm{Ad}_C(X)=CXC^\dagger,
 ```
 
 and release both the classical value $`C`$ and the quantum system. Thus the
 one-specimen channel, conditional on the already-public label, is
 
+**Equation (3).**
+
 ```math
 \Lambda(\rho)=\frac1{|\mathcal C_n|}
 \sum_{C\in\mathcal C_n}|C\rangle\langle C|\otimes\Psi_C(\rho).
-                                                               \tag{3}
 ```
 
 The private random index $`j`$ selecting $`U_j`$ is discarded and is not in
@@ -117,9 +122,11 @@ target $`H`$ is
 
 where
 
+**Equation (4).**
+
 ```math
 \tau_{H,y,C}
-=\frac{I+yC^\dagger\Phi(CHC^\dagger)C}{d}.                    \tag{4}
+=\frac{I+yC^\dagger\Phi(CHC^\dagger)C}{d}.
 ```
 
 Privacy concerns the quantum input conditional on $`y`$. The label's
@@ -134,24 +141,26 @@ squared Hilbert-Schmidt norm of the channel as a linear superoperator by
 
 ```math
 S_\Phi=
-\sum_{R\in\mathcal P_n}\frac{\|\Phi(R)\|_2^2}{d}.
+\sum_{R\in\mathcal P_n}\frac{\Vert\Phi(R)\Vert_2^2}{d}.
 ```
 
 For unitary conjugation superoperators,
 
 ```math
-\langle\operatorname{Ad}_{U_i},
-\operatorname{Ad}_{U_j}\rangle_{\mathrm{HS(super)}}
-=|\operatorname{Tr}(U_i^\dagger U_j)|^2.
+\langle\mathrm{Ad}_{U_i},
+\mathrm{Ad}_{U_j}\rangle_{\mathrm{HS(super)}}
+=|\mathrm{Tr}(U_i^\dagger U_j)|^2.
 ```
 
 Therefore
 
+**Equation (5).**
+
 ```math
 S_\Phi=
 \frac1{K^2}\sum_{i,j=1}^K
-|\operatorname{Tr}(U_i^\dagger U_j)|^2
-\ \ge\ \frac{d^2}{K}.                                      \tag{5}
+|\mathrm{Tr}(U_i^\dagger U_j)|^2
+\ \ge\ \frac{d^2}{K}.
 ```
 
 Every summand is nonnegative; the diagonal terms alone give the inequality.
@@ -159,12 +168,14 @@ Repeated unitaries in the list cause no problem. Unitality gives
 $`\Phi(I)=I`$, so the identity contributes exactly one to $`S_\Phi`$.
 It follows that
 
+**Equation (6).**
+
 ```math
 \mu_\Phi:={\mathbb E}_{R\in\mathcal P_n\setminus\{I\}}
-\frac{\|\Phi(R)\|_2^2}{d}
+\frac{\Vert\Phi(R)\Vert_2^2}{d}
 =\frac{S_\Phi-1}{d^2-1}
 \ge\frac{d^2/K-1}{d^2-1}
-\ge\frac1{2K}.                                               \tag{6}
+\ge\frac1{2K}.
 ```
 
 The final inequality uses $`K\le d^2/2`$. This condition is part of the
@@ -180,15 +191,17 @@ Clifford conjugation sends a fixed nonidentity Pauli to a uniformly random
 signed nonidentity Pauli. Thus, for every signed target $`H`$,
 
 ```math
-\mathbb E_C\frac{\|\Phi(CHC^\dagger)\|_2^2}{d}=\mu_\Phi.
+\mathbb E_C\frac{\Vert\Phi(CHC^\dagger)\Vert_2^2}{d}=\mu_\Phi.
 ```
 
 For two targets $`H,G`$ that are not equal up to sign, the mixed inner
 product averages to zero:
 
+**Equation (7).**
+
 ```math
-\mathbb E_C\operatorname{Tr}
-\big[\Phi(CHC^\dagger)\Phi(CGC^\dagger)\big]=0.                \tag{7}
+\mathbb E_C\mathrm{Tr}
+\big[\Phi(CHC^\dagger)\Phi(CGC^\dagger)\big]=0.
 ```
 
 To see this directly, write a uniform Clifford as a symplectic coset
@@ -202,11 +215,13 @@ applies whether $`H`$ and $`G`$ commute or anticommute.
 
 Combining (6) and (7), distinct targets satisfy
 
+**Equation (8).**
+
 ```math
-\mathbb E_C\big\|
+\mathbb E_C\big\Vert
 \Phi(CHC^\dagger)-\Phi(CGC^\dagger)
-\big\|_2^2
-\ge\frac dK.                                                 \tag{8}
+\big\Vert_2^2
+\ge\frac dK.
 ```
 
 If $`G=-H`$, the left side is instead $`4d\mu_\Phi\ge2d/K`$, so (8)
@@ -214,27 +229,31 @@ still holds. In (4), conjugation by the same $`C^\dagger`$ and the sign
 $`y`$ do not affect the Hilbert-Schmidt distance. Dividing (8) by $`d^2`$
 gives
 
+**Equation (9).**
+
 ```math
 \mathbb E_C
-\|\tau_{H,y,C}-\tau_{G,y,C}\|_2^2
-\ge\frac1{dK}.                                               \tag{9}
+\Vert\tau_{H,y,C}-\tau_{G,y,C}\Vert_2^2
+\ge\frac1{dK}.
 ```
 
 ## 5. Bounded output spectra convert signal into fidelity separation
 
 We use the following elementary inequality. If density operators
-$`\rho,\sigma`$ obey $`\|\rho\|_\infty,\|\sigma\|_\infty\le a`$, then
+$`\rho,\sigma`$ obey $`\Vert\rho\Vert_\infty,\Vert\sigma\Vert_\infty\le a`$, then
+
+**Equation (10).**
 
 ```math
 1-f(\rho,\sigma)
-\ge\frac{\|\rho-\sigma\|_2^2}{8a}.                           \tag{10}
+\ge\frac{\Vert\rho-\sigma\Vert_2^2}{8a}.
 ```
 
 Indeed, choose a unitary $`V`$ attaining Uhlmann's root-fidelity
 variational formula, so for $`A=\sqrt\rho`$ and $`B=\sqrt\sigma V`$,
 
 ```math
-\|A-B\|_2^2=2-2f(\rho,\sigma).
+\Vert A-B\Vert_2^2=2-2f(\rho,\sigma).
 ```
 
 The identity
@@ -247,8 +266,8 @@ AA^\dagger-BB^\dagger
 and the Schatten-norm product inequality give
 
 ```math
-\|\rho-\sigma\|_2
-\le(\|A\|_\infty+\|B\|_\infty)\|A-B\|_2
+\Vert\rho-\sigma\Vert_2
+\le(\Vert A\Vert_\infty+\Vert B\Vert_\infty)\Vert A-B\Vert_2
 \le2\sqrt a\sqrt{2-2f(\rho,\sigma)},
 ```
 
@@ -259,19 +278,23 @@ Root fidelity of block-diagonal states with the same classical block
 probabilities is the corresponding average of block root fidelities.
 Applying (9) and (10) therefore yields, uniformly over distinct targets,
 
+**Equation (11).**
+
 ```math
 1-f(\Sigma_H,\Sigma_G)
 \ge\frac{d}{8(1+\eta)}
 \mathbb E_{y,C}
-\|\tau_{H,y,C}-\tau_{G,y,C}\|_2^2
-\ge\frac1{8(1+\eta)K}.                                      \tag{11}
+\Vert\tau_{H,y,C}-\tau_{G,y,C}\Vert_2^2
+\ge\frac1{8(1+\eta)K}.
 ```
 
 Write $`\gamma=1/[8(1+\eta)K]`$. Tensor-product multiplicativity gives
 
+**Equation (12).**
+
 ```math
 f(\Sigma_H^{\otimes N},\Sigma_G^{\otimes N})
-\le(1-\gamma)^N\le e^{-\gamma N}.                            \tag{12}
+\le(1-\gamma)^N\le e^{-\gamma N}.
 ```
 
 ## 6. An explicit statistical decoder with worst-target error control
@@ -292,9 +315,11 @@ Montanaro's mixed-state **worst-case** PGM bound, Lemma 3 of
 [*Pretty simple bounds on quantum state discrimination*,
 arXiv:1908.08312v2](https://arxiv.org/abs/1908.08312), is
 
+**Equation (13).**
+
 ```math
-\max_H\bigl[1-\operatorname{Tr}(M_H\omega_H)\bigr]
-\le\sum_{H\ne G}f(\omega_H,\omega_G).                         \tag{13}
+\max_H\bigl[1-\mathrm{Tr}(M_H\omega_H)\bigr]
+\le\sum_{H\ne G}f(\omega_H,\omega_G).
 ```
 
 The sum is over ordered distinct pairs. This is the stated mixed-state
@@ -304,10 +329,12 @@ The PGM and its fidelity bounds are inherited discrimination tools.
 
 Use $`\omega_H=\Sigma_H^{\otimes N}`$. Equations (12) and (13) give
 
+**Equation (14).**
+
 ```math
 \max_H\Pr_H\{\widehat H\ne H\}
 \le L(L-1)
-\exp\!\left[-\frac{N}{8(1+\eta)K}\right].                    \tag{14}
+\exp\!\left[-\frac{N}{8(1+\eta)K}\right].
 ```
 
 Equation (2) follows. The classical registers in these states are already
@@ -333,11 +360,13 @@ $`\eta`$ with $`\varepsilon_\eta\le\varepsilon`$; for example,
 $`\eta=\tanh(\varepsilon/2)`$ in the exact-channel statement. For all
 sufficiently large $`d`$, the list satisfies $`K\le d^2/2`$, and (2) gives
 
+**Equation (15).**
+
 ```math
-N=O_\varepsilon\!\left(d[\ln d+\ln(1/\delta)]\right).          \tag{15}
+N=O_\varepsilon\!\left(d[\ln d+\ln(1/\delta)]\right).
 ```
 
-For small fixed $`0<\varepsilon\le1`$, this upper bound has
+For small fixed $`0\lt \varepsilon\le1`$, this upper bound has
 $`\varepsilon^{-2}`$ dependence, subject to the stated finite
 $`K\le d^2/2`$ condition. It is not a uniform separation down to
 $`\varepsilon\asymp1/d`$.
@@ -352,9 +381,11 @@ K=O\!\left(d(\ln d)^6\eta^{-2}\right).
 
 For this finite, exactly representable Pauli-list variant, (2) gives
 
+**Equation (16).**
+
 ```math
 N=O_\varepsilon\!\left(d(\ln d)^6
-[\ln d+\ln(1/\delta)]\right).                                \tag{16}
+[\ln d+\ln(1/\delta)]\right).
 ```
 
 At fixed identification error this is $`O_\varepsilon(d(\ln d)^7)`$.

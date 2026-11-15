@@ -12,7 +12,7 @@ Let $`d=2^n`$. Fix a public list of $`K`$ unitaries for which
 \preceq\frac{1+\eta_0}{d}I
 ```
 
-for every input state, with $`0<\eta_0<\tanh(\varepsilon/2)`$.
+for every input state, with $`0\lt \eta_0\lt \tanh(\varepsilon/2)`$.
 
 For every specimen, draw a fresh private uniform index $`i`$ and an independent public uniform Clifford $`C`$. Apply $`C^\dagger U_iC`$, then release its quantum output, $`C`$, and the public label $`Y`$. Averaging the hidden index realizes
 
@@ -57,17 +57,17 @@ After identification, store the signed-Pauli description in $`O(n)`$ bits. On a 
 | Identification samples | $`O_\varepsilon(d\log d)`$ | $`O_\varepsilon(d(\log d)^7)`$ |
 | Setup and decoder time | No efficient bound established | Cheap report gates; no efficient setup, certification or decoder bound established |
 
-Generic dense unitaries are expensive. A conservative finite synthesis decomposes each into $`O(d^2\operatorname{poly}(n))`$ continuous elementary gates, then approximates single-qubit factors over a finite universal set. All $`K`$ compiled circuits must be stored. The sample advantage is not an end-to-end runtime advantage.
+Generic dense unitaries are expensive. A conservative finite synthesis decomposes each into $`O(d^2\mathrm{poly}(n))`$ continuous elementary gates, then approximates single-qubit factors over a finite universal set. All $`K`$ compiled circuits must be stored. The sample advantage is not an end-to-end runtime advantage.
 
 The collective decoder accesses privatized reports only. The direct pretty-good-measurement construction uses $`Nn`$ coherent data qubits and can require additional workspace. Its matrices, precision and compiled gate count may be enormous. Every finite instance is a finite POVM approximable by a finite circuit to fixed error, but no efficient decoder follows. Public flags are ordinary classical inputs to its construction.
 
 The randomizer results establish a good fixed list's existence. A random setup list that might fail all-state randomization cannot simply be called pure $`\varepsilon`$-private. The theorem uses selected nonuniform good-list setup; no efficient uniformly certified generator is established.
 
-Strict margin permits finite certification in principle. For unit vectors with $`\|\psi-\varphi\|_2\le r`$, trace contraction implies
+Strict margin permits finite certification in principle. For unit vectors with $`\Vert\psi-\varphi\Vert_2\le r`$, trace contraction implies
 
 ```math
-\|\Phi(|\psi\rangle\langle\psi|)
--\Phi(|\varphi\rangle\langle\varphi|)\|_\infty\le2r.
+\Vert\Phi(|\psi\rangle\langle\psi|)
+-\Phi(|\varphi\rangle\langle\varphi|)\Vert_\infty\le2r.
 ```
 
 A sufficiently fine finite pure-state net and certified eigenvalue intervals therefore certify a global bound with slack. A net resolving an $`O(1/d)`$ absolute spectral margin already has size exponential in $`d`$; list search may cost still more. These costs are not free preprocessing.
@@ -85,7 +85,7 @@ Set
 If an actual CPTP implementation obeys
 
 ```math
-\|\widetilde\Phi-\Phi\|_\diamond\le\kappa\le m/(2d),
+\Vert\widetilde\Phi-\Phi\Vert_\diamond\le\kappa\le m/(2d),
 ```
 
 then trace norm dominates operator norm and
@@ -109,14 +109,14 @@ Consequently,
 This remains pure privacy. For a dense list, compile each $`U_i`$ to a unitary $`V_i`$, up to global phase, with
 
 ```math
-\|U_i-V_i\|_\infty\le\delta\le m/(4d).
+\Vert U_i-V_i\Vert_\infty\le\delta\le m/(4d).
 ```
 
 The unitary-channel bound gives
 
 ```math
-\left\|\frac1K\sum_i\operatorname{Ad}_{V_i}
--\frac1K\sum_i\operatorname{Ad}_{U_i}\right\|_\diamond
+\left\Vert\frac1K\sum_i\mathrm{Ad}_{V_i}
+-\frac1K\sum_i\mathrm{Ad}_{U_i}\right\Vert_\diamond
 \le2\delta.
 ```
 
@@ -150,7 +150,7 @@ For product datasets differing only in record $`j`$, independent reports obey
 
 Tensoring unchanged positive factors preserves order, as does every collective CPTP map and measurement. Thus coherent decoding preserves the stated record-neighbor guarantee. Identifying population parameter $`H`$ is compatible with it: changing $`H`$ changes all specimens.
 
-This argument does not prove privacy when the changed record is entangled with a retained reference or other raw records. The definition imposed no corresponding inequality on $`\Lambda\otimes\operatorname{id}_R`$ for such joint states. The source and record-neighbor extension use independent specimens; reference-secure privacy is not claimed.
+This argument does not prove privacy when the changed record is entangled with a retained reference or other raw records. The definition imposed no corresponding inequality on $`\Lambda\otimes\mathrm{id}_R`$ for such joint states. The source and record-neighbor extension use independent specimens; reference-secure privacy is not claimed.
 
 ## Sources
 

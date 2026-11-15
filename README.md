@@ -32,6 +32,12 @@ Start with the [source, privacy definition and principal theorems](science/model
 
 [The LLM reading guide](llms.txt) maps questions to the authoritative proof files.
 
+## Learn the project
+
+The single educational anchor is **John Watrous, *The Theory of Quantum Information* (2018)**. The [Watrous bridge](learning/WATROUS_BRIDGE.md) selects the relevant sections, translates notation and develops the steps from those foundations to this project's private-report learning problem. A complete small example distinguishes a released classical record from an averaged quantum state.
+
+The [30-milestone map](learning/MILESTONES.md) has **14 background/preliminaries milestones** and **16 narrative/innovation milestones**. It moves from one specimen and one measurement to adaptive classical reports, collective quantum reports, the matched identification bounds and their physical limits. Each milestone states an understanding target, earlier dependencies, a conceptual connection and source pointers. The [learning entrypoint](learning/README.md) connects the bridge, map and specialist proofs.
+
 ## Reproduce the finite checks
 
 From the repository root:
