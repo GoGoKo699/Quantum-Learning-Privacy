@@ -75,7 +75,7 @@ The dependencies below refer only to earlier milestones. Textbook pointers locat
 ### M09 — Background: Root fidelity and repeated quantum evidence
 
 - **Central question:** How is distinguishability of two quantum reports related to distinguishability of many independent copies?
-- **Understanding target:** Use root fidelity $`f(\rho,\sigma)=\|\sqrt\rho\sqrt\sigma\|_1`$ without confusing it with its square. Explain its purification meaning, product multiplicativity, and averaging over matching classical blocks.
+- **Understanding target:** Use root fidelity $`f(\rho,\sigma)=\Vert\sqrt\rho\sqrt\sigma\Vert_1`$ without confusing it with its square. Explain its purification meaning, product multiplicativity, and averaging over matching classical blocks.
 - **Dependencies and story role:** M05–M06. Supplies the metric that connects a per-report quantum signal to collective identification.
 - **Conceptual connection:** Classical public flags can be processed classically while the conditional quantum states retain the distinction measured by fidelity.
 - **Source pointers:** W Definition 3.11 and §3.2.2, Theorem 3.22; local uses in [quantum reports](../science/quantum-reports.md), Sections 5–6.

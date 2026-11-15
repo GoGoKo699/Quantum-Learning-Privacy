@@ -50,7 +50,7 @@ e^\varepsilon
 ```
 
 
-for every pair of input density matrices $`\rho,\sigma`$ and every measurable report event $`B`$. We assume $`0<\varepsilon<\infty`$.
+for every pair of input density matrices $`\rho,\sigma`$ and every measurable report event $`B`$. We assume $`0\lt \varepsilon\lt \infty`$.
 
 The client receives one raw specimen, uses fresh local ancillas and randomness if desired, and makes one private release. Neither raw specimens nor client quantum memories persist between records. Hidden keys correlated across records are excluded. Public randomness independent of the source can be included in the history. These conditions make each next release a one-specimen private POVM conditional on its actual classical history.
 
@@ -160,7 +160,7 @@ All relative entropies below use natural logarithms. Write
 
 
 ```math
-\mathrm{kl}(u\|v)
+\mathrm{kl}(u\Vertv)
 =
 u\log\frac uv+(1-u)\log\frac{1-u}{1-v}
 ```
@@ -172,7 +172,7 @@ for binary relative entropy.
 
 
 ```math
-\sum_{H\in\mathcal H}D(Q_0\|Q_H)
+\sum_{H\in\mathcal H}D(Q_0\VertQ_H)
 \leq C_\varepsilon N.
 ```
 
@@ -192,7 +192,7 @@ Consequently
 
 ```math
 \begin{aligned}
-D(q\|p_{+P})+D(q\|p_{-P})
+D(q\Vertp_{+P})+D(q\Vertp_{-P})
 &=
 \mathbb E_q[-\log(1-v_P^2)]\\
 &\leq
@@ -218,18 +218,18 @@ Using the reference law in this direction is essential to the proof: it gives a 
 ```
 
 
-where $`0<\delta<1/2`$. Then
+where $`0\lt \delta\lt 1/2`$. Then
 
 
 ```math
 N
 \geq
 \frac{L}{2C_\varepsilon}
-\mathrm{kl}\!\left(\frac2L\,\middle\|\,1-\delta\right).
+\mathrm{kl}\!\left(\frac2L\,\middle\Vert\,1-\delta\right).
 ```
 
 
-In particular, for every fixed $`\varepsilon>0`$ and fixed $`\delta<1/2`$,
+In particular, for every fixed $`\varepsilon>0`$ and fixed $`\delta\lt 1/2`$,
 
 
 ```math
@@ -237,19 +237,19 @@ N=\Omega_{\varepsilon,\delta}(d^2).
 ```
 
 
-For fixed $`\delta`$ and $`0<\varepsilon\leq1`$, the displayed lower bound is $`\Omega_\delta(d^2/\varepsilon^2)`$, with a dimension-independent constant.
+For fixed $`\delta`$ and $`0\lt \varepsilon\leq1`$, the displayed lower bound is $`\Omega_\delta(d^2/\varepsilon^2)`$, with a dimension-independent constant.
 
-**Proof.** Let $`A_H=\{\widehat H=H\}`$. Their reference probabilities sum to one, so at least $`L/2`$ targets satisfy $`Q_0(A_H)\leq2/L`$. On every such target $`Q_H(A_H)\geq1-\delta`$. Because $`L\geq6`$, we have $`2/L<1-\delta`$. Binary data processing, followed by monotonicity of binary relative entropy on these separated intervals, gives
+**Proof.** Let $`A_H=\{\widehat H=H\}`$. Their reference probabilities sum to one, so at least $`L/2`$ targets satisfy $`Q_0(A_H)\leq2/L`$. On every such target $`Q_H(A_H)\geq1-\delta`$. Because $`L\geq6`$, we have $`2/L\lt 1-\delta`$. Binary data processing, followed by monotonicity of binary relative entropy on these separated intervals, gives
 
 
 ```math
-D(Q_0\|Q_H)
+D(Q_0\VertQ_H)
 \geq
-\mathrm{kl}\!\left(\frac2L\,\middle\|\,1-\delta\right).
+\mathrm{kl}\!\left(\frac2L\,\middle\Vert\,1-\delta\right).
 ```
 
 
-Sum over those targets and use Lemma 2. For fixed $`\delta`$, the binary divergence tends to $`\log(1/\delta)>0`$ as $`d`$ grows. Also $`C_\varepsilon=\Theta(\varepsilon^2)`$ uniformly on $`0<\varepsilon\leq1`$. $`\square`$
+Sum over those targets and use Lemma 2. For fixed $`\delta`$, the binary divergence tends to $`\log(1/\delta)>0`$ as $`d`$ grows. Also $`C_\varepsilon=\Theta(\varepsilon^2)`$ uniformly on $`0\lt \varepsilon\leq1`$. $`\square`$
 
 This proof allows adaptive private measurements, rather than comparing only a fixed noise channel followed by measurement.
 
@@ -276,7 +276,7 @@ Conditional on $`T`$, its success probability is exactly
 
 This formula averages over the fresh fair test label and the test measurement.
 
-**Theorem 4 — private classical prediction.** Fix $`0<\beta<1/2`$. Suppose that for every target $`H`$, the learner's success probability, averaged over its training transcript and the fresh test, is at least $`1/2+\beta`$. Let
+**Theorem 4 — private classical prediction.** Fix $`0\lt \beta\lt 1/2`$. Suppose that for every target $`H`$, the learner's success probability, averaged over its training transcript and the fresh test, is at least $`1/2+\beta`$. Let
 
 
 ```math
@@ -286,14 +286,14 @@ t_{d,\beta}=\frac{2}{L\beta^2}.
 ```
 
 
-Whenever $`t_{d,\beta}<b_\beta`$,
+Whenever $`t_{d,\beta}\lt b_\beta`$,
 
 
 ```math
 N
 \geq
 \frac{L}{2C_\varepsilon}
-\mathrm{kl}(t_{d,\beta}\|b_\beta).
+\mathrm{kl}(t_{d,\beta}\Vertb_\beta).
 ```
 
 
@@ -398,7 +398,7 @@ c\,\frac{\mathrm{Tr}(QH)}d
 
 There is exactly one arm of mean $`+c`$, separated from every competitor by a gap of at least $`c`$.
 
-Pad the $`L`$ arms to $`L'=2^{\lceil\log_2L\rceil}<2L`$ arms with input-independent mean-zero dummy arms. Pair them in a knockout bracket. At round $`r=1,\ldots,\log_2L'`$, sample every surviving arm
+Pad the $`L`$ arms to $`L'=2^{\lceil\log_2L\rceil}\lt 2L`$ arms with input-independent mean-zero dummy arms. Pair them in a knockout bracket. At round $`r=1,\ldots,\log_2L'`$, sample every surviving arm
 
 
 ```math
@@ -413,7 +413,7 @@ t_r
 
 times on fresh specimens, and advance the arm with the larger empirical mean in each match. Dummy observations can be generated without specimens; charging them as if they used specimens only enlarges the stated bound.
 
-**Theorem 5 — private tournament.** For every $`0<\delta<1`$, the tournament outputs $`H`$ with probability at least $`1-\delta`$ for every target $`H`$, and uses no more than
+**Theorem 5 — private tournament.** For every $`0\lt \delta\lt 1`$, the tournament outputs $`H`$ with probability at least $`1-\delta`$ for every target $`H`$, and uses no more than
 
 
 ```math
@@ -435,7 +435,7 @@ N_{\mathrm{tor}}=O_\varepsilon(d^2).
 ```
 
 
-For $`0<\varepsilon\leq1`$, the bound is
+For $`0\lt \varepsilon\leq1`$, the bound is
 $`O[d^2\varepsilon^{-2}(1+\log(1/\delta))]`$.
 
 **Proof.** Condition on the true arm surviving until round $`r`$. Its observations have mean $`c`$, and the opposing arm's mean is at most zero. If the true arm loses, either its empirical mean is at most $`c/2`$, or its opponent's empirical mean is at least $`c/2`$. Hoeffding's inequality for signs in $`[-1,1]`$ gives loss probability at most
@@ -464,7 +464,7 @@ Once the tournament has identified $`H`$, measuring $`H`$ predicts each fresh cl
 
 ## The resulting classical frontier
 
-For any fixed privacy level $`0<\varepsilon<\infty`$ and fixed identification failure below $`1/2`$, the worst-case specimen complexity of adaptive private classical identification is
+For any fixed privacy level $`0\lt \varepsilon\lt \infty`$ and fixed identification failure below $`1/2`$, the worst-case specimen complexity of adaptive private classical identification is
 
 
 ```math
@@ -472,6 +472,6 @@ N_{\mathrm C}(d;\varepsilon)=\Theta_\varepsilon(d^2).
 ```
 
 
-For every fixed target prediction advantage $`0<\beta<1/2`$, the same $`\Theta_\varepsilon(d^2)`$ dimension dependence holds for expected clean-test prediction. The prediction lower bound is Theorem 4. For the upper bound, choose a fixed tournament failure $`\delta<1/2-\beta`$; on successful identification the prediction is exact, and even assigning zero success on the failure event gives total success at least $`1-\delta>1/2+\beta`$.
+For every fixed target prediction advantage $`0\lt \beta\lt 1/2`$, the same $`\Theta_\varepsilon(d^2)`$ dimension dependence holds for expected clean-test prediction. The prediction lower bound is Theorem 4. For the upper bound, choose a fixed tournament failure $`\delta\lt 1/2-\beta`$; on successful identification the prediction is exact, and even assigning zero success on the failure event gives total success at least $`1-\delta>1/2+\beta`$.
 
-At high privacy $`0<\varepsilon\leq1`$, bounded-confidence identification and fixed-advantage prediction have order $`d^2/\varepsilon^2`$, with constants depending on the fixed failure or advantage. This is a statement about specimen complexity under the stated local release model. It does not compare central differential privacy, multi-specimen client preprocessing, retained hidden cross-record keys, or quantum reports processed with persistent quantum memory.
+At high privacy $`0\lt \varepsilon\leq1`$, bounded-confidence identification and fixed-advantage prediction have order $`d^2/\varepsilon^2`$, with constants depending on the fixed failure or advantage. This is a statement about specimen complexity under the stated local release model. It does not compare central differential privacy, multi-specimen client preprocessing, retained hidden cross-record keys, or quantum reports processed with persistent quantum memory.

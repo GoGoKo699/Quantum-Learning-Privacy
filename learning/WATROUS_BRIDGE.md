@@ -49,15 +49,15 @@ The [30 milestones](MILESTONES.md) place these foundations before the project's 
 
 | Book convention | Convention in this project |
 |---|---|
-| A vector $`u`$ and the operator $`uu^*`$ | Often written $`|u\rangle`$ and $`|u\rangle\langle u|`$. |
+| A vector $`u`$ and the operator $`uu^*`$ | Often written $`\lvert u\rangle`$ and $`\lvert u\rangle\langle u\rvert`$. |
 | $`A^*`$, $`1_{\mathcal X}`$, measurement operator $`\mu(z)`$ | $`A^\dagger`$, $`I`$, and POVM effect $`E_z`$. |
 | $`\langle A,B\rangle=\mathrm{Tr}(A^*B)`$ | The same operator inner product. For Hermitian Paulis, $`\mathrm{Tr}(PQ)=d\delta_{P,Q}`$. |
-| Unsubscripted operator norm $`\|A\|`$ | Written $`\|A\|_\infty`$ when contrasted with Schatten norms. $`\|A\|_2`$ is the Hilbert–Schmidt norm. |
-| Fidelity $`F(\rho,\sigma)=\|\sqrt\rho\sqrt\sigma\|_1`$ | The same quantity is denoted $`f`$ when root fidelity needs emphasis. Squared fidelity is $`f^2`$. |
+| Unsubscripted operator norm $`\VertA\Vert`$ | Written $`\VertA\Vert_\infty`$ when contrasted with Schatten norms. $`\VertA\Vert_2`$ is the Hilbert–Schmidt norm. |
+| Fidelity $`F(\rho,\sigma)=\Vert\sqrt\rho\sqrt\sigma\Vert_1`$ | The same quantity is denoted $`f`$ when root fidelity needs emphasis. Squared fidelity is $`f^2`$. |
 | Base-two logarithms in entropy and relative entropy, explicitly fixed on p.251 | Natural logarithms in the proofs here. Thus $`D_{\mathrm{nat}}=(\ln2)D_{\mathrm{book}}`$; information inequalities keep their form when every term uses the same base. |
 | Entropy often denoted $`H`$ | The italic target symbol $`H`$ here also denotes a signed Pauli. Its role is fixed by context; $`h_2`$ is binary entropy with the logarithm base declared in the proof. |
 
-The success probability for equal-prior binary discrimination is $`1/2+\|\rho-\sigma\|_1/4`$. A half-trace-distance convention would therefore put an additional factor of two in the advantage. Fidelity and distance conventions should be checked before transferring a cited bound.
+The success probability for equal-prior binary discrimination is $`1/2+\Vert\rho-\sigma\Vert_1/4`$. A half-trace-distance convention would therefore put an additional factor of two in the advantage. Fidelity and distance conventions should be checked before transferring a cited bound.
 
 ## A complete one-qubit experiment
 

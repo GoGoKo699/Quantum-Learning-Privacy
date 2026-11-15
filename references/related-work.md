@@ -44,7 +44,7 @@ These are imported existence theorems. This project supplies their supervised-le
 
 ## The discrimination and Clifford tools are standard
 
-The conversion from a pairwise root-fidelity gap to a logarithmic-in-ensemble-size copy overhead uses established mixed-state discrimination. [Montanaro](bibliography.md#montanaro2019), Theorem 1 and Lemma 3, provides a direct worst-case PGM statement. [Cheng et al.](bibliography.md#cheng2025), Theorem 11 and Appendix J in arXiv:2403.17868v2, gives the prior-weighted fidelity bound used in the related source project. Root fidelity here is $`\|\sqrt{\rho}\sqrt{\sigma}\|_1`$; it is the square root of sources that use squared fidelity.
+The conversion from a pairwise root-fidelity gap to a logarithmic-in-ensemble-size copy overhead uses established mixed-state discrimination. [Montanaro](bibliography.md#montanaro2019), Theorem 1 and Lemma 3, provides a direct worst-case PGM statement. [Cheng et al.](bibliography.md#cheng2025), Theorem 11 and Appendix J in arXiv:2403.17868v2, gives the prior-weighted fidelity bound used in the related source project. Root fidelity here is $`\Vert\sqrt{\rho}\sqrt{\sigma}\Vert_1`$; it is the square root of sources that use squared fidelity.
 
 Uniform Clifford selection is also established; [Koenig and Smolin](bibliography.md#ks2014) give an explicit polynomial-operation indexing and selection algorithm. No new Clifford sampler or PGM implementation algorithm is claimed.
 

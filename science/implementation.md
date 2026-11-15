@@ -12,7 +12,7 @@ Let $`d=2^n`$. Fix a public list of $`K`$ unitaries for which
 \preceq\frac{1+\eta_0}{d}I
 ```
 
-for every input state, with $`0<\eta_0<\tanh(\varepsilon/2)`$.
+for every input state, with $`0\lt \eta_0\lt \tanh(\varepsilon/2)`$.
 
 For every specimen, draw a fresh private uniform index $`i`$ and an independent public uniform Clifford $`C`$. Apply $`C^\dagger U_iC`$, then release its quantum output, $`C`$, and the public label $`Y`$. Averaging the hidden index realizes
 
@@ -63,11 +63,11 @@ The collective decoder accesses privatized reports only. The direct pretty-good-
 
 The randomizer results establish a good fixed list's existence. A random setup list that might fail all-state randomization cannot simply be called pure $`\varepsilon`$-private. The theorem uses selected nonuniform good-list setup; no efficient uniformly certified generator is established.
 
-Strict margin permits finite certification in principle. For unit vectors with $`\|\psi-\varphi\|_2\le r`$, trace contraction implies
+Strict margin permits finite certification in principle. For unit vectors with $`\Vert\psi-\varphi\Vert_2\le r`$, trace contraction implies
 
 ```math
-\|\Phi(|\psi\rangle\langle\psi|)
--\Phi(|\varphi\rangle\langle\varphi|)\|_\infty\le2r.
+\Vert\Phi(|\psi\rangle\langle\psi|)
+-\Phi(|\varphi\rangle\langle\varphi|)\Vert_\infty\le2r.
 ```
 
 A sufficiently fine finite pure-state net and certified eigenvalue intervals therefore certify a global bound with slack. A net resolving an $`O(1/d)`$ absolute spectral margin already has size exponential in $`d`$; list search may cost still more. These costs are not free preprocessing.
@@ -85,7 +85,7 @@ Set
 If an actual CPTP implementation obeys
 
 ```math
-\|\widetilde\Phi-\Phi\|_\diamond\le\kappa\le m/(2d),
+\Vert\widetilde\Phi-\Phi\Vert_\diamond\le\kappa\le m/(2d),
 ```
 
 then trace norm dominates operator norm and
@@ -109,14 +109,14 @@ Consequently,
 This remains pure privacy. For a dense list, compile each $`U_i`$ to a unitary $`V_i`$, up to global phase, with
 
 ```math
-\|U_i-V_i\|_\infty\le\delta\le m/(4d).
+\VertU_i-V_i\Vert_\infty\le\delta\le m/(4d).
 ```
 
 The unitary-channel bound gives
 
 ```math
-\left\|\frac1K\sum_i\mathrm{Ad}_{V_i}
--\frac1K\sum_i\mathrm{Ad}_{U_i}\right\|_\diamond
+\left\Vert\frac1K\sum_i\mathrm{Ad}_{V_i}
+-\frac1K\sum_i\mathrm{Ad}_{U_i}\right\Vert_\diamond
 \le2\delta.
 ```
 
