@@ -83,7 +83,7 @@ For every fixed $`\varepsilon>0`$, fixed $`\delta\in(0,1/2)`$, and fixed $`\beta
 
 For $`n`$ qubits under ordinary privacy, the predetermined-quantum and adaptive-classical orders are $`\Theta(n2^n)`$ and $`\Theta(4^n)`$, respectively, at fixed privacy and confidence. These orders hold for both identification and fixed-advantage clean prediction.
 
-The [reference-secure theorem](reference-secure-privacy.md) extends the predetermined-encoder law to $`\Theta(dk\log d/\varepsilon^2)`$ for $`1\leq k\leq d`$ and $`0<\varepsilon\leq1`$. With unrestricted reference privacy, the adaptive optimum is $`\Theta(d^2/\varepsilon^2)`$ even with arbitrary retained quantum memory. The feedback chooses the next local encoder using a classical history.
+The [reference-secure theorem](reference-secure-privacy.md) extends the predetermined-encoder law to $`\Theta(dk\log d/\varepsilon^2)`$ for $`1\leq k\leq d`$ and $`0<\varepsilon\leq1`$. With unrestricted reference privacy, the adaptive optimum is $`\Theta(d^2/\varepsilon^2)`$ even with arbitrary retained quantum memory. The feedback chooses the next local encoder using a classical history. With predetermined encoders, classical reports instead require order $`d^2\log d/\varepsilon^2`$ under the same reference bound, since ordinary-private classical effects already protect arbitrary references.
 
 The short-list construction in the ordinary-privacy chapter uses an actual list length $`K\leq d^2/2`$. The reference-secure proof uses a constant-distortion list and separately tunes privacy by an input-independent replacement branch. It gives uniform small-$`\varepsilon`$ scaling and leaves the optimal quantum rate with adaptive encoders open for intermediate reference dimensions.
 
