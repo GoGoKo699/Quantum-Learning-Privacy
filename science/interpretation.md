@@ -23,9 +23,15 @@ N_{\mathrm C}=\Theta(4^n),\qquad
 N_{\mathrm Q,prod}=\Theta(n2^n).
 ```
 
-The quantum product-encoder cost is optimal in its stated class. The classical converse permits adaptive encoders and unlimited classical computation. The same quantum protocol learns a clean-test classifier, while any private classical learner attaining fixed positive clean-test advantage still needs order $`4^n`$ training specimens. A matching quantum lower bound for prediction alone is not established.
+The quantum product-encoder cost is optimal in its stated class. The classical converse permits adaptive encoders and unlimited classical computation. The same quantum protocol learns a clean-test classifier, while any private classical learner attaining fixed positive clean-test advantage still needs order $`4^n`$ training specimens. The ordinary-privacy quantum converse here concerns identification.
 
 The comparison is statistical. Both costs are exponential in the number of qubits. Generic randomizer setup and collective decoding can also be expensive. The exact Pauli implementation reduces the per-report quantum gates at a larger polylogarithmic sample cost; it does not supply an efficient decoder or efficiently certified setup.
+
+## What a retained privacy reference changes
+
+With an $`r`$-dimensional reference, the local channel must protect the input against joint measurements on the reference and the report. The [averaged Choi probe](reference-secure-learning.md) reduces the Pauli information budget from order $`1/d`$ to order $`1/(dr)`$ per report. The short random-unitary list and a collective decoder attain the resulting identification order.
+
+Under unrestricted reference privacy, both fixed schedules require order $`d^2\log d`$ specimens for identification. With feedback, a classical tournament attains order $`d^2`$. The quantum-memory converse requires that many specimens even for a fixed clean-test advantage. The Werner Choi example shows that a channel under the stronger privacy contract can still preserve entanglement.
 
 ## Relation to the entanglement-breaking privacy boundary
 
@@ -43,7 +49,7 @@ The good-list construction used here does not determine the sharp transition as 
 
 ## Privacy and physical scope
 
-The privacy definition quantifies over every unassisted input state and every measurement of the actual released register. It covers public flags and collective measurements of independently privatized product records. It does not assert privacy against arbitrary retained purifications, complete reference-aware privacy, or secrecy of the common target across an entire population.
+Both privacy guarantees cover the actual released register and its flags. The ordinary guarantee tests unassisted inputs, and the reference-secure guarantee compares joint inputs with the same reference marginal. Both allow learning a common target across many independent owners.
 
 The source is classical data only in its labels; its features are native quantum specimens. Every feature state is separable across its qubits. In the Pauli-list implementation, each realized branch is a tensor product of Pauli gates, so individual quantum reports remain separable as well. The quantum resource is retaining reports for joint processing across examples. The randomly selected tensor-Pauli pattern can be correlated across qubits within one specimen; a product of separately chosen single-qubit private channels would be a different mechanism.
 

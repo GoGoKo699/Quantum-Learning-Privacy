@@ -1,19 +1,19 @@
 # Quantum Learning Privacy
 
-**Can quantum memory still help when every training specimen is locally private?** This project gives an exponential sample separation between classical and quantum private reports from the same labeled quantum source.
+**How much does quantum memory help when a private training report can be measured together with an entangled reference?**
 
-The task is to learn one hidden signed Pauli classifier from native $`n`$-qubit examples. Every owner privatizes one specimen before releasing it. Privacy holds for every possible input state and includes all public flags. Training labels are public.
+The task is to learn a hidden signed Pauli classifier from native $`n`$-qubit examples. Each owner privatizes one specimen and releases a classical or quantum report. Training labels are public, and the privacy condition includes every released flag.
 
-Let $`d=2^n`$. At every fixed positive local-privacy level $`\varepsilon`$ and fixed bounded identification error, the sample costs are:
+Let $`d=2^n`$ and let $`r`$ be the largest dimension of the external reference protected by the privacy guarantee. At fixed positive privacy $`\varepsilon`$ and fixed bounded identification error, the same source gives the following costs.
 
-| Private training reports | Specimens | Allowed processing |
-|---|---:|---|
-| Classical | $`\Theta_\varepsilon(d^2)`$ | Arbitrary adaptive private measurements and unlimited classical computation |
-| Quantum | $`\Theta_\varepsilon(d\log d)`$ | Noninteractive product encoders and arbitrary collective decoding |
+| Encoder choices | Reference privacy | Classical reports | Quantum reports |
+|---|---|---:|---:|
+| Fixed before receiving reports | $`1\le r\le d`$ | $`\Theta_\varepsilon(d^2\log d)`$ | $`\Theta_\varepsilon(dr\log d)`$ |
+| Classical feedback | Arbitrary reference dimension | $`\Theta_\varepsilon(d^2)`$ | $`\Theta_\varepsilon(d^2)`$ |
 
-The quantum upper also learns a classifier for a fresh clean specimen. Any private classical learner achieving a fixed positive clean-test advantage requires $`\Omega_\varepsilon(d^2)`$ specimens. A matching quantum lower bound is established for identification in the product-encoder model, not for prediction alone or adaptive quantum encoders.
+At $`r=1`$ the guarantee is ordinary input-state local privacy. With fixed encoders, protecting an $`r`$-dimensional reference reduces the quantum sample advantage to a factor of order $`d/r`$. Under unrestricted reference privacy, classical feedback attains the quadratic cost even when the learner can retain quantum reports and measure them jointly. The same feedback cost applies to a fixed positive advantage on a fresh clean test specimen. The optimal feedback cost for intermediate $`r`$ remains open.
 
-The coherent mechanism combines a short operator-randomizing channel with a public random Clifford orientation. A stronger private-effect Pauli information budget limits classical reports. The result uses established approximate-randomization and discrimination tools; the [related-work account](references/related-work.md) explains the same-source privacy comparison and its inherited ingredients.
+The [reference-secure proof](science/reference-secure-learning.md) bounds the information available in one report and gives a matching construction with short random-unitary lists. The [related-work account](references/related-work.md) gives the privacy definition and the sources of the randomization and discrimination tools.
 
 ## Read the science
 
@@ -21,6 +21,7 @@ Start with the [source, privacy definition and principal theorems](science/model
 
 | To inspect | Read |
 |---|---|
+| Reference privacy, matched product bounds and the feedback endpoint | [Reference-secure learning](science/reference-secure-learning.md) |
 | Adaptive private classical lower bound and matching noisy tournament | [Classical reports](science/classical-reports.md) |
 | Private randomizer, public flags, Clifford response and collective decoder | [Quantum reports](science/quantum-reports.md) |
 | Matching noninteractive quantum identification converse | [Quantum information budget](science/quantum-converse.md) |
@@ -47,13 +48,13 @@ python3 -m pip install -r verification/requirements.txt
 python3 verification/run_all.py
 ```
 
-The deterministic checks address private-effect constants, reverse-divergence budgets, actual-record likelihoods and finite matrix inequalities. They supplement the written proofs. They do not certify a randomly sampled list as private for every input or establish an efficient collective decoder.
+The deterministic checks address private-effect constants, reverse-divergence budgets, actual-record likelihoods, finite matrix inequalities, and the reference-dependent Pauli information budget. They supplement the written proofs. They do not certify a randomly sampled list as private for every input or establish an efficient collective decoder.
 
 ## Scope
 
-The privacy parameter is fixed as $`d`$ grows, and the selected randomizer must satisfy its all-state guarantee and finite list-length condition. The result concerns ordinary input-state QLDP, independent one-specimen privatization, and a clean deployment test. Reference-secure privacy, reused hidden encoder keys and joint preprocessing of raw specimens are outside the model.
+Training uses independent native specimens and fresh local encoders. Feedback chooses the next encoder through a classical record. The privacy reference belongs to the channel's guarantee, and the learner's report memory can be arbitrarily large. Reused hidden encoder keys, coherent feedback into encoders, and joint access to raw specimens are outside the model.
 
-Both principal sample costs are exponential in $`n`$. Dense randomizer setup and collective decoding can also require exponential computation. An exact tensor-Pauli local implementation gives the larger upper bound $`O_\varepsilon(d(\log d)^7)`$ with a fixed good setup list. No end-to-end runtime advantage is inferred.
+Dense randomizer setup and collective decoding can also require exponential computation. For ordinary input-state privacy, an exact tensor-Pauli local implementation gives the separate upper bound $`O_\varepsilon(d(\log d)^7)`$ with a fixed good setup list. These results count specimens.
 
 ## Purpose and contact
 

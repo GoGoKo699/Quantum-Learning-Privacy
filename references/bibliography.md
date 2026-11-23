@@ -26,6 +26,18 @@ Version-specific theorem locators in [Related work](related-work.md) refer to th
 
 **Guillaume Aubrun.** *On almost randomizing channels with a short Kraus decomposition.* Communications in Mathematical Physics **288**, 1103–1116 (2009). [DOI: 10.1007/s00220-008-0695-y](https://doi.org/10.1007/s00220-008-0695-y). Theorem locators: [arXiv:0805.2900v2](https://arxiv.org/abs/0805.2900v2), 12 June 2008.
 
+## LGY2026
+
+**Chenjian Li, Ji Guan, and Mingsheng Ying.** *Entanglement-Assisted Quantum Differential Privacy.* [arXiv:2611.25775v1](https://arxiv.org/abs/2611.25775v1), 19 November 2026. Definition 3 gives the equal-reference-marginal privacy condition.
+
+## LW2024
+
+**Cécilia Lancien and Andreas Winter.** *Approximating quantum channels by completely positive maps with small Kraus rank.* Quantum **8**, 1320 (2024). [DOI: 10.22331/q-2024-04-30-1320](https://doi.org/10.22331/q-2024-04-30-1320).
+
+## Meckes2019
+
+**Elizabeth S. Meckes.** *The Random Matrix Theory of the Classical Compact Groups.* Cambridge University Press (2019). [Author's text](https://case.edu/artsci/math/mwmeckes/elizabeth/Haar_book.pdf), Section 5.4, especially Theorem 5.16 for Haar concentration.
+
 ## CCHL2021
 
 **Sitan Chen, Jordan Cotler, Hsin-Yuan Huang, and Jerry Li.** *Exponential separations between learning with and without quantum memory.* FOCS 2021. [arXiv:2111.05881v2](https://arxiv.org/abs/2111.05881v2), 18 November 2021. [DOI: 10.1109/FOCS52979.2021.00063](https://doi.org/10.1109/FOCS52979.2021.00063).

@@ -23,7 +23,7 @@ An owner applies one channel $`\Lambda`$ before release. Conditional on the publ
 \quad\text{for every pair of input density operators }\rho,\sigma.
 ```
 
-This is a statement about the actual output register and every measurement of it. It protects an unassisted input state; it does not claim privacy of arbitrary correlations with a retained reference system. Raw specimens are not pooled before privatization.
+This is a statement about the actual output register and every measurement of it. It is the reference-secure condition at dimension $`r=1`$. For larger $`r`$, consider joint inputs $`\rho_{AR},\sigma_{AR}`$ with the same reference marginal and compare the joint outputs of $`\Lambda\otimes\mathrm{id}_R`$ for every reference of dimension at most $`r`$. The unrestricted-reference condition allows any reference dimension. Raw training specimens remain independently generated and are privatized one at a time. The reference is part of the privacy test, with the same labeled specimens supplied for learning.
 
 A final collective measurement may discover $`H`$ from many independent private reports. Local privacy protects one record; it does not require the common population pattern to remain hidden.
 
@@ -35,7 +35,9 @@ The route below follows the dependencies of this project. Completing the full te
 |---|---|---|
 | Represent a specimen and its public label | §§2.1.1–2.1.3, pp.58–71; Definition 2.5, p.62 | Treat the label as a classical block and keep track of which registers the learner receives. |
 | Represent local release and discarded randomness | §§2.2.1–2.2.2, pp.72–90; Theorem 2.22 | A channel includes private ancillas and discarded environments; a released flag is an additional output. |
+| Test privacy with a reference register | §§2.1.3 and 2.2.2 | Apply the identity channel to the reference, keep its marginal fixed, and compare the entire output in positive-semidefinite order. The Choi representation gives a complete-order test. |
 | Write a classical report as a POVM | §2.3.1, p.100 onward; Definition 2.34 | Input-state privacy becomes an eigenvalue-ratio constraint on every report effect. |
+| Describe feedback from retained quantum reports | §2.3.2, pp.111–113, Eqs. (2.258)–(2.262) | An instrument produces a classical outcome and leaves a conditional quantum state. The outcome can select the next encoder. |
 | Measure total response in a Pauli basis | §1.1.2, Eq.(1.81), p.15; §1.1.3, p.24 onward | Apply the operator inner product to the normalized tensor-Pauli basis; the private-effect variance calculation is local to the project. |
 | Relate prediction to discrimination | §§3.1.1–3.1.2, pp.125–138; Theorem 3.4, p.128 | A learned binary test is a POVM. Correct identification supplies a perfect clean-test measurement, but prediction need not identify the target. |
 | Combine weak quantum reports | Definition 3.11, p.139; §3.2.2 and Theorem 3.22, p.151 | Use root fidelity, a project-specific spectral estimate, then an imported quantitative mixed-state discrimination bound. |
@@ -125,6 +127,20 @@ There is no conflict between this observation and a public independent axis in t
 
 The full-dimensional [released-register example](../science/privacy-registers.md) develops the same distinction for shadow-state preparations and their classical descriptions.
 
+### What changes when a reference is retained
+
+Keep a second qubit $`R`$, and compare a Bell state $`\Phi_{AR}`$ with an orthogonal Bell state $`\Psi_{AR}`$. Both reference marginals are $`I/2`$. For the quantum report above, the two joint outputs are
+
+```math
+\frac12\Phi_{AR}+\frac18 I_{AR},
+\qquad
+\frac12\Psi_{AR}+\frac18 I_{AR}.
+```
+
+A projection onto $`\Phi_{AR}`$ has probabilities $`5/8`$ and $`1/8`$. The ratio is five, so the $`\log3`$ promise for ordinary qubit inputs fails with a two-dimensional reference.
+
+For the classical sign report, each effect lies between $`I/4`$ and $`3I/4`$. Its unnormalized reference block is $`\mathrm{Tr}_A[(E_z\otimes I_R)\rho_{AR}]`$, which lies between $`\rho_R/4`$ and $`3\rho_R/4`$. This follows by evaluating the block against each positive test on the reference. A second joint input with the same marginal obeys the same bounds, so every sign block is still private at $`\log3`$ for any reference. The same argument applies to any ordinary pure-private POVM. The [reference-secure theorem](../science/reference-secure-learning.md) uses this observation to match the classical comparator at every reference size.
+
 ## The steps the book does not supply
 
 ### Classical reports: from one effect to an adaptive transcript
@@ -185,11 +201,19 @@ I(H:\widehat H)
 
 Watrous's Holevo theorem controls the information accessible to the final measurement. The displayed general Fano form is supplied here; the book's Lemma 5.54 concerns a binary special case.
 
+### How the reference and feedback change the proof
+
+A maximally entangled probe on an $`r`$-dimensional input subspace has reference marginal $`I/r`$. Compare its private joint output with the output when the input is independently maximally mixed. Privacy controls the resulting weighted quadratic. Averaging over Clifford rotations of the subspace gives a per-report Pauli information budget of order $`1/(dr-1)`$. The product reference and Fano argument above then give the reference-size identification lower bound.
+
+For achievability, a list of order $`dr`$ Haar unitary conjugations makes the joint output close in positive-semidefinite order to the product of the maximally mixed output and the original reference marginal. Reference filtering passes the inequality from maximally entangled probes to arbitrary inputs of the allowed reference size. The surviving Pauli response still feeds the public-Clifford and collective discrimination construction. When the list size becomes comparable to $`d^2`$, predetermined randomized-response queries give the needed upper bound. At the unrestricted-reference endpoint a classical report gives a matching product-order upper bound, with reference privacy certified by its effects.
+
+For classical feedback, the learner can measure parts of its stored reports to choose the next channel. A reverse relative-entropy comparison keeps the same classical-history weights from the maximally mixed null experiment for every target. Conditional on each such history, the next fresh release factors from the stored memory. The bound survives later instruments by data processing. Under unrestricted reference privacy the resulting quadratic lower bound also covers fixed clean-test advantage. The same fresh test goes into the actual and null comparisons, and opposite target signs give null success one-half. The adaptive randomized-response tournament attains the rate. The [reference-secure theorem](../science/reference-secure-learning.md#model-and-statements) gives these arguments and their assumptions.
+
 ## Reassemble the claim with its limits
 
-At each fixed positive $`\varepsilon`$ and fixed bounded identification error, the established orders are $`\Theta_\varepsilon(d^2)`$ for adaptive private classical reports and $`\Theta_\varepsilon(d\log d)`$ for noninteractive private quantum product encoders. The quantum construction also learns a clean-test classifier; its prediction cost alone is not proved optimal.
+At fixed positive $`\varepsilon`$ and fixed identification error, product encoders cost $`\Theta_\varepsilon(dr\log d)`$ for quantum reports and $`\Theta_\varepsilon(d^2\log d)`$ for classical reports. The matched product separation has order $`d/r`$. With unrestricted reference privacy, classical feedback with retained quantum reports changes the optimum to $`\Theta_\varepsilon(d^2)`$ for identification and fixed clean-test advantage. The exact intermediate-reference feedback rate remains open.
 
-These statements use independent native specimens, public labels, all-input ordinary QLDP, a complete accounting of accessible flags, and a fixed-privacy large-dimension limit. They exclude raw collective preprocessing and hidden keys shared between owners. General randomizer descriptions and collective decoding can be expensive. The tensor-Pauli implementation has a larger polylogarithmic specimen cost and does not establish efficient setup certification. Quantum storage, source preparations, communication and clean deployment are charged in [implementation](../science/implementation.md).
+The feedback theorem sends classical outcomes to the next encoder. It leaves coherent feedback and entangled training records outside the model. Every result includes accessible flags in the privacy comparison. General randomizer descriptions and collective decoding can be expensive. The original ordinary-privacy tensor-Pauli implementation has a larger polylogarithmic specimen cost. The [implementation account](../science/implementation.md) explains how setup, quantum storage, communication and clean deployment enter the resource comparison.
 
 The [milestone map](MILESTONES.md) connects the foundations and these project steps into one scientific route.
 

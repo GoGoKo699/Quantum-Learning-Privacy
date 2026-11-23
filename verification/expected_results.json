@@ -130,6 +130,54 @@
     "maximum_signed_reverse_kl_over_bound": 0.999061675,
     "trials_per_setting": 10
   },
+  "reference_secure_information_budget": {
+    "absolute_tolerance": 2e-10,
+    "exact_twirl_and_reverse_divergence": {
+      "complete_order_privacy_ratio": 6.905555556,
+      "compressed_choi_cases": [
+        {
+          "finite_frame_average": 0.120427383,
+          "maximum_probe_quadratic": 0.153057221,
+          "predicted_average": 0.120427383,
+          "reference_rank": 1
+        },
+        {
+          "finite_frame_average": 0.280997227,
+          "maximum_probe_quadratic": 0.361461302,
+          "predicted_average": 0.280997227,
+          "reference_rank": 2
+        },
+        {
+          "finite_frame_average": 0.441567071,
+          "maximum_probe_quadratic": 0.531890735,
+          "predicted_average": 0.441567071,
+          "reference_rank": 3
+        },
+        {
+          "finite_frame_average": 0.602136916,
+          "maximum_probe_quadratic": 0.602136916,
+          "predicted_average": 0.602136916,
+          "reference_rank": 4
+        }
+      ],
+      "frames_per_rank": 10368,
+      "input_dimension": 4,
+      "maximum_reference_report_commutator_norm": 0.013903754,
+      "maximum_relative_entropy_over_baseline_quadratic": 0.555884759,
+      "nonunitality_frobenius_norm": 0.526925042,
+      "pauli_quadratic_budget": 0.602136916,
+      "probe_quadratic_bound": 5.050366497
+    },
+    "reference_private_werner_choi": {
+      "complete_reference_privacy_epsilon": 0.510825624,
+      "dimension": 5,
+      "lower_depolarizing_multiplier": 0.789473684,
+      "minimum_partial_transpose_eigenvalue": -0.010526316,
+      "upper_depolarizing_multiplier": 1.315789474,
+      "werner_contrast": 0.25
+    },
+    "schema_version": 1
+  },
   "rounding_decimal_places": 9,
   "schema_version": 1,
   "seed": 20261115,

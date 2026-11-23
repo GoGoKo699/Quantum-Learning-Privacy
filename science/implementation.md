@@ -128,7 +128,7 @@ Approximation of the final collective POVM changes identification error. Every s
 
 ## Product records and quantum references
 
-The guarantee is ordinary one-record privacy,
+The ordinary construction uses the one-record guarantee
 
 ```math
 \Lambda(\rho)\preceq e^\varepsilon\Lambda(\sigma),
@@ -150,7 +150,7 @@ For product datasets differing only in record $`j`$, independent reports obey
 
 Tensoring unchanged positive factors preserves order, as does every collective CPTP map and measurement. Thus coherent decoding preserves the stated record-neighbor guarantee. Identifying population parameter $`H`$ is compatible with it: changing $`H`$ changes all specimens.
 
-This argument does not prove privacy when the changed record is entangled with a retained reference or other raw records. The definition imposed no corresponding inequality on $`\Lambda\otimes\mathrm{id}_R`$ for such joint states. The source and record-neighbor extension use independent specimens; reference-secure privacy is not claimed.
+A retained reference calls for a joint test of $`\Lambda\otimes\mathrm{id}_R`$. The [reference-secure construction](reference-secure-learning.md) proves a uniform order margin using rank-$`r`$ maximally entangled probes and then filters the reference to cover all joint inputs. Its fixed-contrast list has order $`dr`$ unitary branches. The same private branch index, public Clifford flag, and collective decoder apply. In a finite synthesis, a joint probe error smaller than the privacy margin transfers the proof to the realized list.
 
 ## Sources
 

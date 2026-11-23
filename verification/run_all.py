@@ -16,6 +16,7 @@ from pathlib import Path
 import numpy as np
 
 from check_quantum_budget import run_checks as check_quantum_information_budget
+from reference_secure_check import run_checks as check_reference_secure_budget
 
 SEED = 20261115
 ATOL = 2e-10
@@ -425,6 +426,7 @@ def run() -> dict:
         "tournament_costs": check_tournament_costs(),
         "bounded_spectrum_bures_bound": check_bures_bound(rng),
         "noncommuting_quantum_information_budget": check_quantum_information_budget(),
+        "reference_secure_information_budget": check_reference_secure_budget(),
     }
 
 

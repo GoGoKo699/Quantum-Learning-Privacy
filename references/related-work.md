@@ -50,6 +50,12 @@ Uniform Clifford selection is also established; [Koenig and Smolin](bibliography
 
 The matching noninteractive quantum identification converse uses standard Haar second moments, the order-two Petz relative-entropy bound, Holevo information and Fano's inequality. Their exact calculation with all-input local privacy gives the task-specific per-report information budget in [the converse](../science/quantum-converse.md). It does not replace the correlated ensemble mean by a product or extend the product-encoder bound to adaptive quantum encoders. [Watrous](bibliography.md#watrous2018) supplies the standard quantum-information foundations.
 
+## Privacy with an external quantum reference
+
+[Li, Guan and Ying](bibliography.md#lgy2026), Definition 3 and Section V of arXiv:2611.25775v1, compare outputs on joint inputs with the same reference marginal and relate that privacy condition to Choi and replacement-channel order. The [learning theorem](../science/reference-secure-learning.md) uses this condition with an explicit reference dimension and arbitrary report registers. The averaged probe converts the privacy guarantee into a Pauli information budget and a matching specimen law. The quantum-memory feedback argument extends the original classical reverse-divergence proof to a learner retaining quantum reports.
+
+[Aubrun](bibliography.md#aubrun2009) supplies the constant-net precedent for ordinary operator randomization. [Lancien and Winter](bibliography.md#lw2024) place low-Kraus channel approximation in a broader setting. The construction here controls the relative order against a bounded reference and uses the surviving Pauli response to recover a classifier. Haar concentration from [Meckes](bibliography.md#meckes2019) supplies the fixed-probe estimate.
+
 ## What remains outside the conclusion
 
-The privacy guarantee is ordinary input-state QLDP, without a reference-system privacy claim. Raw collective preprocessing before local privatization, hidden correlated keys, and uncounted released randomness change the model. The optimality result for noninteractive quantum encoders must not be transferred to adaptively chosen quantum encoders. Public labels, expensive randomizer descriptions, coherent training storage, and the collective measurement remain part of the stated resource account.
+Raw collective preprocessing before local privatization, hidden correlated keys, and uncounted released randomness change the experiment. The feedback theorem permits classical control over successive fresh encoders. The optimum for intermediate reference dimensions with feedback remains open. Public labels, expensive randomizer descriptions, coherent training storage, and the collective measurement remain part of the stated resource account.

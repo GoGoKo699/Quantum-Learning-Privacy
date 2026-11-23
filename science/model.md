@@ -43,22 +43,22 @@ The order is the positive-semidefinite, or Loewner, order. Equivalently, every e
 
 The label is public and is not protected. Privacy must hold conditional on that label, the preceding available classical history, and every public random choice. Any additional flag released with the quantum or classical report is included in the channel output. The private random index discarded inside a channel is not released. Averaging away a flag that the recipient actually receives cannot establish privacy of that recipient's view; [the register example](privacy-registers.md) makes the distinction explicit.
 
-This is the ordinary, unassisted-input QLDP definition. It is not a guarantee for arbitrary correlations with an external reference, and it is not a diamond-norm replacement-channel promise. With independent product inputs, the one-record Loewner inequality remains valid after tensoring the other fixed reports and applying a collective measurement. Learning the common target from many different owners is compatible with local protection of each owner's individual example.
+This is ordinary input-state QLDP. The [reference-secure extension](reference-secure-learning.md) compares $`(\Lambda\otimes\mathrm{id}_R)(\rho_{AR})\preceq e^\varepsilon(\Lambda\otimes\mathrm{id}_R)(\sigma_{AR})`$ for every joint input pair with $`\rho_R=\sigma_R`$. The guarantee can bound $`\dim R`$ by $`r`$ or allow all references. The training distribution stays the same. With independent product inputs, the one-record Loewner inequality remains valid after tensoring the other fixed reports and applying a collective measurement. Learning the common target from many different owners is compatible with local protection of each owner's individual example.
 
-## The two reporting models
+## Reporting and feedback
 
 Each owner accesses one raw specimen, uses fresh local ancillas and private randomness, and makes one private release. Raw specimens and client quantum memories do not persist between records. Correlated hidden keys shared between owners are outside both models.
 
 | Resource | Classical reports | Quantum reports used here |
 |---|---|---|
 | Local access | One raw specimen | One raw specimen |
-| Local privacy | Conditional all-input-state $`\varepsilon`$-QLDP | Conditional all-input-state $`\varepsilon`$-QLDP |
+| Local privacy | Conditional on public information and the actual classical report | Same condition for the quantum report and every released flag |
 | Released register | Any classical report alphabet | A quantum system and public flags |
-| Choice of local mechanism | May adapt to every previous classical report | Predetermined product encoders; public randomness allowed |
+| Choice of local mechanism | Fixed schedule or classical feedback | Fixed schedule or classical feedback obtained from instruments on the learner's report memory |
 | Retained learner memory | Unlimited classical memory | Privatized quantum systems and classical flags |
 | Final processing | Arbitrary classical computation and a test POVM | Arbitrary collective measurement and computation |
 
-The classical lower bound therefore covers more than a fixed noise channel followed by measurement. It allows the learner to design and adapt its private measurement itself. The coherent upper bound uses a noninteractive product encoder. A separate converse establishes its optimal identification order within that product-encoder class; it does not determine the optimum for adaptive quantum encoders.
+The classical lower bound therefore covers more than a fixed noise channel followed by measurement. It allows the learner to design and adapt its private measurement itself. The coherent upper bound uses a noninteractive product encoder. The [product converse](quantum-converse.md) establishes its optimal ordinary-privacy identification order. The reference-secure extension allows classical outcomes from instruments on previous reports to select the next encoder. Conditional on the target and classical history, fresh reports factor from the current quantum memory.
 
 Sample budgets are deterministic upper caps. A learner stopping early can be padded with input-independent reports. Bounds on expected stopping time under the target sources alone are not asserted.
 
@@ -66,13 +66,22 @@ Sample budgets are deterministic upper caps. A learner stopping early can be pad
 
 In **identification**, the learner outputs the signed Pauli $`\widehat H`$. Upper bounds below control the maximum error over all targets. The product-quantum converse uses a uniform prior, which also bounds any worst-target guarantee.
 
-In **clean-test prediction**, training ends before one fresh, unprivatized specimen $`\rho_{H,Y}`$ arrives with its label hidden. The learner predicts $`Y`$. A classical training transcript may specify any binary test POVM. A constant advantage $`\beta\in(0,1/2)`$ means success at least $`1/2+\beta`$ for every target, averaged over training and test randomness. Privacy of the training reports is the constraint; a constant-accuracy claim for privatized test specimens is not made.
+In **clean-test prediction**, training ends before one fresh, unprivatized specimen $`\rho_{H,Y}`$ arrives with its label hidden. The learner predicts $`Y`$. A classical training transcript may specify any binary test POVM. A learner retaining quantum reports may measure them together with the test specimen. A constant advantage $`\beta\in(0,1/2)`$ means success at least $`1/2+\beta`$ for every target, averaged over training and test randomness. Privacy of the training reports is the constraint; a constant-accuracy claim for privatized test specimens is not made.
 
 Identification with error $`\delta`$ gives clean-test success at least $`1-\delta`$: on correct identification, a local Pauli measurement is exact. The reverse implication is not assumed. The classical prediction converse is proved directly using a bounded-size list extracted from the learned test observable.
 
 ## Principal results
 
-For every fixed $`\varepsilon>0`$, fixed $`\delta\in(0,1/2)`$, and fixed $`\beta\in(0,1/2)`$, as $`d=2^n`$ grows:
+For fixed positive privacy and fixed target error or clean-test advantage, the [reference-secure results](reference-secure-learning.md) give the following orders.
+
+| Privacy and task | Reporting model | Specimens |
+|---|---|---:|
+| Reference dimension at most $`r`$, identification | Product quantum reports | $`\Theta_{\varepsilon,\delta}(dr\log d)`$ |
+| Any reference bound, identification | Noninteractive classical reports | $`\Theta_{\varepsilon,\delta}(d^2\log d)`$ |
+| Unrestricted reference, identification | Classical feedback with arbitrary quantum report memory | $`\Theta_{\varepsilon,\delta}(d^2)`$ |
+| Unrestricted reference, clean-test prediction | Classical feedback with arbitrary quantum report memory | $`\Theta_{\varepsilon,\beta}(d^2)`$ |
+
+Under ordinary privacy, for fixed $`\varepsilon>0`$, identification error $`\delta\in(0,1/2)`$, and clean-test advantage $`\beta\in(0,1/2)`$, the baseline results are:
 
 | Task and reporting model | Required and sufficient training specimens | Authoritative proof |
 |---|---:|---|
@@ -81,9 +90,9 @@ For every fixed $`\varepsilon>0`$, fixed $`\delta\in(0,1/2)`$, and fixed $`\beta
 | Identification, noninteractive private quantum product encoders | $`\Theta_{\varepsilon,\delta}(d\log d)`$ | [Coherent construction](quantum-reports.md), [quantum converse](quantum-converse.md) |
 | Identification with an exact tensor-Pauli local implementation and a fixed good setup list | $`O_{\varepsilon,\delta}(d(\log d)^7)`$ | [Pauli implementation](implementation.md) |
 
-The quantum upper also supplies clean-test prediction at the same sample order. Its order is not claimed optimal for prediction alone. For $`n`$ qubits, the principal identification orders are $`\Theta(n2^n)`$ and $`\Theta(4^n)`$ at fixed privacy and confidence. Both grow exponentially in $`n`$; their ratio is exponential as well.
+The ordinary-privacy product construction also predicts clean test labels at the same sample order. Its ordinary-privacy converse concerns target identification. For $`n`$ qubits, the principal identification orders are $`\Theta(n2^n)`$ and $`\Theta(4^n)`$ at fixed privacy and confidence. Both grow exponentially in $`n`$; their ratio is exponential as well.
 
-The fixed-privacy limit matters: $`\varepsilon`$ is held independent of $`d`$. The randomizer construction requires sufficiently large $`d`$, with its actual list length $`K\le d^2/2`$. No uniform interpolation to $`\varepsilon\sim1/d`$, finite crossover claim, or optimal adaptive-quantum law is included.
+The fixed-privacy limit matters: $`\varepsilon`$ is held independent of $`d`$. The randomizer construction requires sufficiently large $`d`$, with its actual list length $`K\le d^2/2`$. The reference-secure result gives the matching feedback endpoint under unrestricted reference privacy. Intermediate reference dimensions with feedback remain open.
 
 ## Why the representation matters
 
@@ -93,4 +102,4 @@ Approximate randomization and the general discrimination tools are established i
 
 ## Reading route
 
-Read [classical reports](classical-reports.md) for the private-effect information budget and tournament, [coherent reports](quantum-reports.md) for the construction, [the quantum converse](quantum-converse.md) for its product-encoder optimum, and [privacy registers](privacy-registers.md) for the exact released-record distinction. The [verification guide](../verification/README.md) separates finite checks from the analytical statements.
+Read [classical reports](classical-reports.md) for the private-effect information budget and tournament, [coherent reports](quantum-reports.md) for the construction, [the quantum converse](quantum-converse.md) for its product-encoder optimum, [reference-secure learning](reference-secure-learning.md) for the dependence on reference dimension and classical feedback, and [privacy registers](privacy-registers.md) for the released-record distinction. The [verification guide](../verification/README.md) separates finite checks from the analytical statements.

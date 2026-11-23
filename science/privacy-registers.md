@@ -60,6 +60,8 @@ whereas the permitted ratio is $`3/2`$. Protecting that actual classical pair re
 
 The [coherent report](quantum-reports.md) explicitly releases a Clifford flag $`C`$ and a randomized quantum system. Its privacy proof holds separately in every $`C`$ block, including arbitrary output measurements. The privately chosen Kraus index is discarded; disclosing it would release a reversible unitary branch and invalidate the argument.
 
+The [reference-secure construction](reference-secure-learning.md) keeps the same flag contract and proves joint order on every Clifford block for the specified reference dimension.
+
 The [classical converse](classical-reports.md) includes every setting or snapshot descriptor available to its learner. It therefore applies to the private classical record itself. A known observable can still be estimated efficiently by choosing a private measurement tailored to that observable; the learning problem must discover which one of many observables is relevant.
 
 The averaged channel above appears in the private-shadow analysis of [Nuradha, Bhalerao, and Leditzky, arXiv:2602.10510v1, equation (23), Proposition 11 and Appendix I](https://arxiv.org/abs/2602.10510v1). Its quantum-state privacy guarantee must be distinguished from the privacy of a released classical snapshot description. This register comparison supplies the relevant boundary here; it makes no general claim about the other results in that work.

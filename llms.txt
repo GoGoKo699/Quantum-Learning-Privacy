@@ -1,12 +1,13 @@
 Quantum Learning Privacy
 
-Story: every owner releases one locally private version of the same native quantum training source. Classical reports need order d^2 specimens; retained quantum reports plus collective decoding need order d log d at fixed privacy. Both sample counts are exponential in n=log2(d). No runtime speedup is claimed.
+Story: every owner releases one locally private version of the same native quantum training source. With reference dimension at most r, fixed quantum encoders need order dr log d specimens for Pauli identification, versus d^2 log d for fixed classical encoders. With unrestricted reference privacy and classical feedback, both need order d^2, even for fixed clean-test advantage.
 
 Entry: README.md, then science/model.md. The model file owns common notation, privacy/flag definition, local-access promises, tasks, exact asymptotic scope and theorem table.
 
 Study: learning/README.md, learning/WATROUS_BRIDGE.md, and learning/MILESTONES.md. The single educational anchor is John Watrous, The Theory of Quantum Information (2018). The bridge gives selective section pointers and local project derivations. The common map contains exactly M01–M30:14 background/preliminaries and16 narrative/innovation targets. It is independent of a reader's assessment history. Research papers in references/ are proof dependencies and attribution, not additional educational anchors.
 
 Proof routes:
+- Reference-secure learning: science/reference-secure-learning.md. It owns the reference-dimension privacy contract, averaged Choi information budget, randomizer construction, matched product comparison and full-reference feedback endpoint.
 - Adaptive classical private identification or prediction: science/classical-reports.md. It owns private-effect Pauli energy, reverse-KL chain rule, test-observable/list reduction and noisy tournament.
 - Quantum construction and worst-target error: science/quantum-reports.md. It owns actual flagged QLDP, short randomizer response energy, Clifford signs, root fidelity and the PGM bound.
 - Quantum optimality: science/quantum-converse.md. This is identification for predetermined product encoders, with Holevo-Fano and a Haar second-moment privacy budget. It does not prove adaptive-quantum or prediction-only optimality.
@@ -20,9 +21,9 @@ Qualifiers to preserve:
 - Same quantum source and conditional all-input-state privacy for both report types; labels are public.
 - One raw specimen per local release, fresh private randomness, no retained raw/client quantum memory or correlated hidden encoder keys.
 - All public output flags are part of the privacy guarantee; the private random Kraus index is discarded.
-- Ordinary unassisted-input QLDP, not complete/reference-aware privacy.
+- Ordinary input-state QLDP is the r=1 endpoint. The external reference dimension is distinct from decoder memory.
 - Fixed positive privacy, sufficiently large dimension and actual K<=d^2/2. No uniform privacy-to-zero threshold.
 - Clean unprivatized test prediction; no constant-accuracy promise on privatized tests.
-- Quantum identification Theta(d log d) applies to noninteractive product encoders. Classical Theta(d^2) permits adaptivity. Do not promote this to an adaptive quantum optimum.
+- The reference-secure adaptive lower bound is tight at unrestricted reference privacy. Intermediate r with feedback remains open. Feedback chooses fresh encoders through classical outcomes.
 - Haar-list sample order and Pauli-list d(log d)^7 implementation are different resource statements.
 - Nonuniform good setup and arbitrary collective measurement existence do not establish efficient construction, decoding or an application-level runtime advantage.
