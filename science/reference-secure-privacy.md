@@ -116,9 +116,9 @@ The first step uses scalar Jensen in each spectral decomposition and then in the
 Let $`R_*(X)=\mathrm{Tr}(X)I/d`$. Use the vectorization $`\mathrm{vec}(U)=(U\otimes I)\sum_a|a,a\rangle`$ and the corresponding unnormalized Choi matrix. The Choi matrix of $`R_*`$ is $`I/d`$. For an absolute constant $`C`$, a list of $`K=\lceil Cdk\rceil`$ Haar unitaries can be fixed so that its channel $`\Phi=K^{-1}\sum_i\mathrm{Ad}_{U_i}`$ satisfies
 
 ```math
-\frac{1-\eta_0}{d}\|v\|^2
+\frac{1-\eta_0}{d}\Vert v\Vert ^2
 \le \langle v|J_\Phi|v\rangle
-\le\frac{1+\eta_0}{d}\|v\|^2
+\le\frac{1+\eta_0}{d}\Vert v\Vert ^2
 \qquad\text{for all }v\text{ of Schmidt rank at most }k,
 \qquad \eta_0=\frac12.
 ```
@@ -129,18 +129,18 @@ To see existence, identify $`v=\mathrm{vec}(X)`$ and define
 T(X)=K^{-1/2}\big(\sqrt d\,\mathrm{Tr}(U_i^\dagger X)\big)_{i=1}^K .
 ```
 
-For fixed $`\|X\|_2=1`$, the unscaled components $`\sqrt d\,\mathrm{Tr}(U_i^\dagger X)`$ have mean zero, second absolute moment one by Haar orthogonality, and uniformly sub-Gaussian real and imaginary parts. The corresponding real functions on $`U(d)`$ have Lipschitz constant $`\sqrt d`$ in the Hilbert–Schmidt metric. The Haar log-Sobolev constant of order $`1/d`$ compensates for this factor. See [Meckes, Theorems 5.16–5.17](https://case.edu/artsci/math/mwmeckes/elizabeth/Haar_book.pdf). The squared absolute values are uniformly subexponential. Bernstein's inequality gives probability at most $`2e^{-cK}`$ of a deviation of $`\|T(X)\|_2^2`$ from one by more than $`1/8`$, with an absolute $`c>0`$.
+For fixed $`\Vert X\Vert _2=1`$, the unscaled components $`\sqrt d\,\mathrm{Tr}(U_i^\dagger X)`$ have mean zero, second absolute moment one by Haar orthogonality, and uniformly sub-Gaussian real and imaginary parts. The corresponding real functions on $`U(d)`$ have Lipschitz constant $`\sqrt d`$ in the Hilbert–Schmidt metric. The Haar log-Sobolev constant of order $`1/d`$ compensates for this factor. See [Meckes, Theorems 5.16–5.17](https://case.edu/artsci/math/mwmeckes/elizabeth/Haar_book.pdf). The squared absolute values are uniformly subexponential. Bernstein's inequality gives probability at most $`2e^{-cK}`$ of a deviation of $`\Vert T(X)\Vert _2^2`$ from one by more than $`1/8`$, with an absolute $`c>0`$.
 
-The Frobenius unit sphere of rank-at-most-$`k`$ matrices has a $`1/32`$-net of size $`\exp(O(dk))`$. In a singular value decomposition $`X=U\Sigma V^\dagger`$, cover each of the two isometries in operator norm and the vector of singular values in Euclidean norm, to accuracy $`1/96`$. The isometry nets follow by volume packing in the operator-norm unit ball of real dimension $`2dk`$, with centers on the isometries. The product net gives the asserted Frobenius accuracy because $`\|\Sigma\|_2=1`$. A union bound makes the fixed-point deviation estimate hold simultaneously on the net at $`K\ge Cdk`$.
+The Frobenius unit sphere of rank-at-most-$`k`$ matrices has a $`1/32`$-net of size $`\exp(O(dk))`$. In a singular value decomposition $`X=U\Sigma V^\dagger`$, cover each of the two isometries in operator norm and the vector of singular values in Euclidean norm, to accuracy $`1/96`$. The isometry nets follow by volume packing in the operator-norm unit ball of real dimension $`2dk`$, with centers on the isometries. The product net gives the asserted Frobenius accuracy because $`\Vert \Sigma\Vert _2=1`$. A union bound makes the fixed-point deviation estimate hold simultaneously on the net at $`K\ge Cdk`$.
 
-Let $`S`$ be the supremum of $`\|T(X)\|_2`$ over the rank-at-most-$`k`$ Frobenius unit sphere. The difference between $`X`$ and its nearest net point has rank at most $`2k`$. Split its singular values into two rank-at-most-$`k`$ pieces whose Frobenius norms sum to at most $`\sqrt2/32`$. The triangle inequality gives
+Let $`S`$ be the supremum of $`\Vert T(X)\Vert _2`$ over the rank-at-most-$`k`$ Frobenius unit sphere. The difference between $`X`$ and its nearest net point has rank at most $`2k`$. Split its singular values into two rank-at-most-$`k`$ pieces whose Frobenius norms sum to at most $`\sqrt2/32`$. The triangle inequality gives
 
 ```math
 S\le\frac{\sqrt{9/8}}{1-\sqrt 2/32},\qquad
-\|T(X)\|_2\ge \sqrt{7/8}-(\sqrt 2/32)S .
+\Vert T(X)\Vert _2\ge \sqrt{7/8}-(\sqrt 2/32)S .
 ```
 
-These imply $`\|T(X)\|_2^2\in[1/2,3/2]`$, and $`\|T(X)\|_2^2=d\langle v|J_\Phi|v\rangle`$. This extends the rank-one randomization principle of [Aubrun, Theorem 1](https://arxiv.org/abs/0805.2900) to rank-constrained quadratic tests. The probabilistic argument establishes that a fixed good list exists. The privacy guarantee requires such a list. A probability of drawing a bad list cannot be charged to the decoder's error.
+These imply $`\Vert T(X)\Vert _2^2\in[1/2,3/2]`$, and $`\Vert T(X)\Vert _2^2=d\langle v|J_\Phi|v\rangle`$. This extends the rank-one randomization principle of [Aubrun, Theorem 1](https://arxiv.org/abs/0805.2900) to rank-constrained quadratic tests. The probabilistic argument establishes that a fixed good list exists. The privacy guarantee requires such a list. A probability of drawing a bad list cannot be charged to the decoder's error.
 
 Write any pure input over $`S R`$ as $`|\psi\rangle=(I\otimes A)\sum_a|a,a\rangle`$. For $`\dim R\le k`$, pulling an output test vector back by $`I\otimes A^\dagger`$ gives Schmidt rank at most $`k`$. The Choi inequality therefore yields
 
@@ -186,7 +186,7 @@ The right-hand side is weighted under the null, whose history is independent of 
 Pinsker's inequality and Jensen give
 
 ```math
-\frac1L\sum_h\frac12\|\sigma_h-\sigma_0\|_1
+\frac1L\sum_h\frac12\Vert \sigma_h-\sigma_0\Vert _1
 \le
 \sqrt{\frac{N e^\varepsilon(e^\varepsilon-1)^2}{2(dk-1)}} .
 ```
