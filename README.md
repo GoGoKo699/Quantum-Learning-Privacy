@@ -6,10 +6,11 @@ Each example supplies a fair public label and one native quantum specimen. The u
 
 | Privacy and control | Optimal training specimens at fixed error or prediction advantage |
 |---|---:|
-| Reference dimension $`1\leq k\leq d`$, predetermined local encoders and collective decoding | $`\Theta(dk\log d/\varepsilon^2)`$ |
+| Reference dimension $`1\leq k\leq d`$, predetermined quantum reports and collective decoding | $`\Theta(dk\log d/\varepsilon^2)`$ |
+| Same reference bound, predetermined classical reports | $`\Theta(d^2\log d/\varepsilon^2)`$ |
 | Unrestricted reference, classical feedback and arbitrary learner quantum memory | $`\Theta(d^2/\varepsilon^2)`$ |
 
-These orders hold uniformly for $`0<\varepsilon\leq1`$. They apply both to identifying the signed Pauli and to predicting the label of one fresh clean specimen. The ordinary local-privacy separation is the $`k=1`$ case. With unrestricted reference privacy, a classical adaptive tournament attains the same optimum as a learner with quantum memory. For intermediate $`k`$, the exact adaptive rate remains open.
+These orders hold uniformly for $`0<\varepsilon\leq1`$. They apply both to identifying the signed Pauli and to predicting the label of one fresh clean specimen. At fixed encoder schedules the quantum sample advantage has order $`d/k`$. The ordinary local-privacy separation is the $`k=1`$ case. With unrestricted reference privacy, a classical adaptive tournament attains the same optimum as a learner with quantum memory. For intermediate $`k`$, the exact adaptive rate remains open.
 
 The [reference-secure proof](science/reference-secure-privacy.md) connects privacy to a bound on the total information a report can retain across Pauli directions. A short unitary list matches the predetermined-encoder bound. A measurement on the trained memory converts a successful clean-test predictor into a bounded-success identifier, even when the prediction would have consumed the memory.
 
