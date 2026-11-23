@@ -188,7 +188,7 @@ Pinsker's inequality and Jensen give
 ```math
 \frac1L\sum_h\frac12\Vert \sigma_h-\sigma_0\Vert _1
 \le
-\sqrt{\frac{N e^\varepsilon(e^\varepsilon-1)^2}{2(dk-1)}} .
+\frac{\sqrt{N e^\varepsilon}\,(e^\varepsilon-1)}{\sqrt{2(dk-1)}} .
 ```
 
 With the null memory, average identification succeeds with probability at most $`1/L`$. Pairing that memory with a clean test under the signed prior gives chance prediction because both label-conditioned test states average to $`I/d`$. For each $`h,y`$, tensoring the same test state to the two memories leaves their trace distance unchanged. The displayed bound consequently controls both identification gain above $`1/L`$ and clean prediction gain above chance. This yields $`\Omega(dk/\varepsilon^2)`$ for either fixed performance goal and $`\Omega(d^2/\varepsilon^2)`$ at the unrestricted endpoint.
