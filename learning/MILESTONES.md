@@ -2,7 +2,7 @@
 
 The selected educational anchor is John Watrous, [*The Theory of Quantum Information* (2018)](https://cs.uwaterloo.ca/~watrous/TQI/), abbreviated **W** below. The [Watrous bridge](WATROUS_BRIDGE.md) translates its notation and identifies the additional project-specific arguments. W uses base-two logarithms; the scientific chapters use natural logarithms. Its fidelity convention is the root fidelity used here.
 
-The map has **14 background/preliminaries milestones and 16 narrative/innovation milestones**. The background phase connects one physical specimen, its measurement and release, and the information measures needed to formulate the full experiment. The narrative phase joins the private classical converse and tournament, the coherent construction and converse, and their implementation and scope into one contribution. This allocation gives both proof branches their prerequisites without turning the map into the textbook's table of contents.
+The map has **14 background/preliminaries milestones and 16 narrative/innovation milestones**. The background phase connects one physical specimen, its measurement and release, and the information measures needed to formulate the full experiment. The narrative connects the private classical report budget to the quantum encoder, then tracks how a protected reference changes the specimen cost of identification and clean prediction.
 
 The dependencies below refer only to earlier milestones. Textbook pointers locate foundations; the named project statements supply the task-specific results. The map covers the contribution's conceptual structure and load-bearing limitations, rather than every calculation in its proofs.
 
@@ -59,10 +59,10 @@ The dependencies below refer only to earlier milestones. Textbook pointers locat
 ### M07 — Background: All-input local privacy as matrix order
 
 - **Central question:** What does it mean to protect one quantum input against every measurement of its report?
-- **Understanding target:** Interpret $`\Lambda(\rho)\preceq e^\varepsilon\Lambda(\sigma)`$ for all unassisted input states. Relate positive-semidefinite order to event probabilities and explain why the condition includes inputs outside the learning promise and every flag the recipient receives.
+- **Understanding target:** Interpret positive-semidefinite order as an event-probability inequality. Start with ordinary all-input privacy, then apply the same inequality to the joint output and reference for any two input states with equal reference marginals. Keep all public flags in the comparison.
 - **Dependencies and story role:** M02 and M05–M06. Turns the released-register description into the shared reporting constraint.
-- **Conceptual connection:** For classical reports, the same privacy promise becomes an eigenvalue-ratio restriction on each POVM effect.
-- **Source pointers:** W §1.1 for positive operators, §2.2.1 for channels, and §2.3.1 for measurements; the locally supplied privacy definition in [model](../science/model.md), “Privacy belongs to the released register.”
+- **Conceptual connection:** An equal reference marginal makes the comparison test the extra information about the input supplied by the report.
+- **Source pointers:** W §1.1 for positive operators, §§2.1.3 and 2.2.1 for reference systems and channels, and §2.3.1 for measurements. See the [model](../science/model.md) and the [reference-secure privacy definition](../science/reference-secure-privacy.md).
 
 ### M08 — Background: Divergence along a classical experiment
 
@@ -99,10 +99,10 @@ The dependencies below refer only to earlier milestones. Textbook pointers locat
 ### M12 — Background: Symmetry distributes response
 
 - **Central question:** How can an average over directions become useful for an unknown target?
-- **Understanding target:** Explain the purpose of uniform unitary and pure-state averages, the second moment $`\mathbb E\psi^{\otimes2}=(I+F)/[d(d+1)]`$, and Clifford conjugation of Pauli labels. Distinguish an average response from a guarantee for every target.
+- **Understanding target:** Explain why one-copy and two-copy averages simplify under unitary conjugation. Use the identity and the swap to describe the second moment of a Haar-random rank-$`k`$ projector. Recognize the pure-state second moment as the $`k=1`$ case. Distinguish a Haar average from the public Clifford orientation used in the encoder.
 - **Dependencies and story role:** M03–M05 and M09–M11. Joins the operator basis to the symmetry tools used by both quantum arguments.
-- **Conceptual connection:** The upper bound uses public orientation to spread a retained signal, while the converse uses a pure-state second moment to budget information.
-- **Source pointers:** W §7.1.1 and §7.2.1, Lemma 7.24; local Clifford sign argument in [quantum reports](../science/quantum-reports.md), Section 4, and moment normalization in [quantum converse](../science/quantum-converse.md), Eq. (Q5).
+- **Conceptual connection:** Public orientation spreads a retained signal across unknown Pauli targets. The projector moment constrains how much response can survive reference-secure privacy.
+- **Source pointers:** W §7.1.1 and §7.2.1, Lemma 7.24. See [quantum reports](../science/quantum-reports.md), Section 4, for the Clifford average and [reference-secure privacy](../science/reference-secure-privacy.md) for the rank projector moment.
 
 ### M13 — Background: Specimens, confidence, and physical costs
 
@@ -115,10 +115,10 @@ The dependencies below refer only to earlier milestones. Textbook pointers locat
 ### M14 — Background: The complete same-source experiment
 
 - **Central question:** Which promises must stay fixed for the classical and quantum learning costs to be comparable?
-- **Understanding target:** Assemble the labeled source, single-record privacy, complete released registers, allowed feedback, retained learner memory, clean future test, and charged resources into one experiment. Explain why public labels, fresh local randomness, independent raw records, and the absence of hidden shared keys are load-bearing assumptions.
+- **Understanding target:** Assemble the native source, training reports, feedback, learner memory and clean test. Distinguish the protected reference of dimension $`k`$ in the privacy definition from the retained learner memory in the inference problem. Explain the role of fresh randomness at each owner and the independent raw specimens.
 - **Dependencies and story role:** M01–M13. Integrates the background into the full problem rather than adding another isolated prerequisite.
 - **Conceptual connection:** The comparison concerns private classical versus private quantum reports from the same physical specimens; it does not replace classical examples by more informative quantum examples.
-- **Source pointers:** W §§2.1–2.3 for the state-channel-measurement framework; [model](../science/model.md), complete statement, and [implementation](../science/implementation.md), “Product records and quantum references.”
+- **Source pointers:** W §§2.1–2.3 for the experiment's quantum registers and operations. See the [model](../science/model.md), [reference-secure model](../science/reference-secure-privacy.md), and [implementation](../science/implementation.md).
 
 ## Narrative and innovation
 
@@ -154,29 +154,29 @@ The dependencies below refer only to earlier milestones. Textbook pointers locat
 - **Conceptual connection:** A directional privacy budget can be spent adaptively on candidate comparisons, giving $`\Theta_\varepsilon(d^2)`$ specimen order.
 - **Source pointers:** W §2.3.1 for the measurement description; the randomized-response mechanism, concentration argument, and cost sum supplied in [classical reports](../science/classical-reports.md), Theorem 5 and “The resulting classical frontier.”
 
-### M19 — Narrative: A quantum report is private in every public block
+### M19 — Narrative: A public flag and retained reference both count
 
-- **Central question:** How can a channel conceal every individual input while leaving its quantum output available for learning?
-- **Understanding target:** Use the operator-randomization band to establish local privacy of the quantum system conditional on each released Clifford flag. Distinguish the public orientation from the independently sampled private Kraus index, which is discarded.
-- **Dependencies and story role:** M05–M07, M12, and M14. Starts the coherent branch with an actual private release rather than a hypothetical signal.
-- **Conceptual connection:** Blockwise order proves privacy of the complete recipient view while permitting later joint processing of independent reports.
-- **Source pointers:** W §§2.1.1, 2.2.1–2.2.2; [quantum reports](../science/quantum-reports.md), Sections 1–2; [privacy registers](../science/privacy-registers.md), “How the learning construction treats flags.”
+- **Central question:** How can a quantum report remain private when the observer sees a public flag and holds a reference?
+- **Understanding target:** Compare two joint inputs with the same reference marginal. Show how a spectral sandwich around the replacement output implies privacy block by block. Explain how a maximally entangled input exposes the missing support of a short Kraus list.
+- **Dependencies and story role:** M05–M07, M09, M12, and M14. Sets the stronger guarantee for the quantum-report construction.
+- **Conceptual connection:** Ordinary outputs test product directions in the Choi matrix. Protecting a larger reference also tests entangled directions.
+- **Source pointers:** W §§2.1.3 and 2.2.2 for purifications and Choi representations. See [reference-secure privacy](../science/reference-secure-privacy.md) and the [one-qubit experiment](WATROUS_BRIDGE.md#a-complete-one-qubit-experiment).
 
-### M20 — Narrative: A short Kraus list must retain signal energy
+### M20 — Narrative: A fixed rank-restricted randomizer can retain Pauli signal
 
-- **Central question:** What prevents an approximate randomizer with few unitary branches from erasing every Pauli response?
-- **Understanding target:** Relate the superoperator Hilbert–Schmidt norm to the pairwise trace overlaps of its unitary branches. Explain how the nonnegative diagonal contributions, removal of the identity direction, and $`K\le d^2/2`$ give an average surviving energy of order $`1/K`$.
-- **Dependencies and story role:** M04–M05 and M19. Extracts the quantitative local signal left inside the private quantum output.
-- **Conceptual connection:** Privacy flattens each output spectrum, while a short channel description limits how completely all operator directions can be suppressed.
-- **Source pointers:** W §§1.1.2–1.1.3 and §2.2.2; the task-specific trace identity in [quantum reports](../science/quantum-reports.md), Section 3, Eqs. (5)–(6).
+- **Central question:** How many hidden unitary branches are enough to protect a reference of dimension $`k`$?
+- **Understanding target:** Connect the Choi quadratic form on reshaped matrices of rank at most $`k`$ to the output sandwich for inputs of Schmidt rank at most $`k`$. Explain why a constant-radius net leads to an $`O(dk)`$ list and how mixing with exact replacement adjusts the privacy parameter.
+- **Dependencies and story role:** M04–M05, M12–M13, and M19. Builds a report that is uniformly private after the setup list is fixed.
+- **Conceptual connection:** The same list must certify protection in every allowed direction and stay short enough to retain response energy.
+- **Source pointers:** W §§2.2.2 and 7.1.1 for channel and invariant-measure foundations. See [reference-secure privacy](../science/reference-secure-privacy.md) and [quantum reports](../science/quantum-reports.md), Section 3.
 
-### M21 — Narrative: Public Clifford orientation protects every target pair
+### M21 — Narrative: Public Clifford orientation spreads signal across target pairs
 
 - **Central question:** How does an average signal bound become a worst-target learning guarantee?
-- **Understanding target:** Explain uniform Pauli orientation and the independent sign averaging that cancels cross terms for distinct unsigned Paulis. Treat opposite-sign targets separately and see why the same pair-separation bound covers both commuting and anticommuting targets.
+- **Understanding target:** Explain how a short list retains total signal energy and how uniform Pauli orientation spreads it across target pairs. Check why averaging over Pauli signs cancels cross terms for distinct unsigned Paulis. Treat opposite-sign targets separately.
 - **Dependencies and story role:** M12 and M19–M20. Turns the local average signal into uniform pairwise distinguishability.
 - **Conceptual connection:** Public randomization can make a signal useful without supplying the private branch index that would undo privacy.
-- **Source pointers:** W §7.2.1 for uniform averaging; the Clifford-specific argument supplied in [quantum reports](../science/quantum-reports.md), Section 4, Eqs. (7)–(9).
+- **Source pointers:** W §7.2.1 for uniform averaging; the Clifford-specific argument supplied in [quantum reports](../science/quantum-reports.md), Section 4, Eqs. (7)–(9), and its application to the rank-restricted list in [reference-secure privacy](../science/reference-secure-privacy.md).
 
 ### M22 — Narrative: Flat output spectra strengthen a small signal
 
@@ -189,64 +189,63 @@ The dependencies below refer only to earlier milestones. Textbook pointers locat
 ### M23 — Narrative: Collective discrimination learns every signed Pauli
 
 - **Central question:** How do pairwise fidelity gaps lead to bounded error for every target?
-- **Understanding target:** Interpret the pretty-good measurement on the known privatized family, the ordered-pair fidelity error sum, and its worst-target guarantee. Explain why the public flag sequence remains classical and why the resulting copy bound is a statistical decoder statement.
-- **Dependencies and story role:** M11, M13, and M22. Closes the coherent upper-bound branch with a finite identification protocol.
+- **Understanding target:** Interpret the pretty-good measurement on the known privatized family and the ordered-pair fidelity error sum. Explain how predetermined randomized response replaces the quantum construction when reference protection calls for a long randomizer list.
+- **Dependencies and story role:** M11, M13, M18, and M22. Completes the identification upper bound with a quantum decoder and a classical fallback.
 - **Conceptual connection:** Independent weak quantum reports can be held together until one joint measurement distinguishes a growing family of targets.
-- **Source pointers:** W §3.1.2 and §3.2.2 for discrimination and fidelity foundations; the imported mixed-state PGM bound and local sample calculation in [quantum reports](../science/quantum-reports.md), Section 6.
+- **Source pointers:** W §3.1.2 and §3.2.2 for discrimination and fidelity foundations; the imported mixed-state PGM bound in [quantum reports](../science/quantum-reports.md), Section 6, and both construction regimes in [reference-secure privacy](../science/reference-secure-privacy.md).
 
-### M24 — Narrative: Privacy also limits one quantum report's information
+### M24 — Narrative: Reference protection limits one quantum report's information
 
-- **Central question:** Could a different private quantum channel hide a much larger target signal per specimen?
-- **Understanding target:** Follow whitening on the reference support, the pure-state second moment, and the quadratic-to-relative-entropy step. Explain why all-input privacy bounds the signed target ensemble's Holevo information by order $`1/d`$, independently of report dimension.
-- **Dependencies and story role:** M04, M07, M10–M12, and M19. Begins the converse branch for arbitrary noninteractive private quantum encoders.
-- **Conceptual connection:** The Pauli second moment gives a channel information budget distinct from the classical effect budget.
-- **Source pointers:** W §§5.2.1, 5.2.3, and 7.2.1, Lemma 7.24; the noncommutative derivation in [quantum converse](../science/quantum-converse.md), Eqs. (Q3)–(Q9).
+- **Central question:** How does access to a larger reference tighten the privacy-imposed learning converse?
+- **Understanding target:** Whiten the report on the support of the maximally mixed input's output. Compress the joint test state to a Haar-random $`k`$-dimensional subspace and use the second moment to bound target-averaged forward and reverse divergences by order $`\varepsilon^2/(dk)`$ for $`0\lt\varepsilon\le1`$.
+- **Dependencies and story role:** M04, M07, M10–M12, and M19. Establishes a per-report budget for arbitrary released dimensions.
+- **Conceptual connection:** A single larger-reference privacy test constrains more of the Pauli response.
+- **Source pointers:** W §§5.2.1, 5.2.3, and 7.2.1. See [reference-secure privacy](../science/reference-secure-privacy.md) for the compression identity and relative-entropy bounds.
 
-### M25 — Narrative: A product reference gives the coherent identification converse
+### M25 — Narrative: Predetermined encoders turn the report budget into an identification bound
 
-- **Central question:** Why do arbitrary collective decoding and large report spaces still require order $`d\log d`$ product-encoded specimens?
-- **Understanding target:** Distinguish the correlated target-ensemble mean from the product of single-report reference states. Apply relative-entropy decomposition, tensor-product additivity, Holevo's bound, and general Fano's inequality under the stated public conditioning.
-- **Dependencies and story role:** M08, M11, M13, and M24. Builds the one-report quantum budget into the global noninteractive converse.
-- **Conceptual connection:** A uniform prior is legitimate after conditioning on independent public coins, but the proof does not authorize replacing a posterior after adaptive encoder feedback by that prior.
-- **Source pointers:** W §5.2.3 and §5.3.3, Theorems 5.35 and 5.49; [quantum converse](../science/quantum-converse.md), Eqs. (Q10)–(Q11), Theorem Q, and the local Fano derivation.
+- **Central question:** Why do predetermined local encoders need order $`dk\log d`$ specimens at fixed privacy?
+- **Understanding target:** Use a product of single-report null states as the common comparison. Apply additivity under public conditioning and combine the resulting Holevo bound with Fano's inequality over the signed target set.
+- **Dependencies and story role:** M08, M11, M13, and M24. Converts the one-report divergence into a lower bound for every collective decoder.
+- **Conceptual connection:** Fixed encoders permit the same target prior at each step of the comparison. In a feedback protocol, the next encoder can depend on earlier outcomes.
+- **Source pointers:** W §§5.2.3 and 5.3.3, Theorems 5.35 and 5.49. See [reference-secure privacy](../science/reference-secure-privacy.md) and the $`k=1`$ argument in [quantum converse](../science/quantum-converse.md).
 
-### M26 — Narrative: The two specimen frontiers meet in one comparison
+### M26 — Narrative: One joint prediction test can identify a signed target
 
-- **Central question:** What asymptotic advantage is established after both competitors are optimized in their stated classes?
-- **Understanding target:** Combine the classical converse and tournament with the coherent upper and product-encoder converse. Explain $`\Theta_\varepsilon(d^2)`$ versus $`\Theta_\varepsilon(d\log d)`$ identification, the quantum upper for clean prediction induced by identification, and the remaining absence of an optimal quantum prediction law.
-- **Dependencies and story role:** M17–M18, M23, and M25. Joins the proof branches into the principal statistical result.
-- **Conceptual connection:** At fixed privacy and bounded confidence, the ratio is exponential in qubit count even though both specimen budgets grow exponentially.
-- **Source pointers:** W §§3.1.2 and 5.3.3 for the inference framework; [model](../science/model.md), “Principal results,” and [interpretation](../science/interpretation.md), “What the exponential separation means.”
+- **Central question:** How can an identification converse constrain a learner that only predicts one clean test label?
+- **Understanding target:** Expand the final binary observable on memory and the clean system in the test Pauli basis. Use the operator-valued Parseval identity and squared positive parts to construct a valid identification POVM on the trained memory. Relate a fixed prediction advantage to fixed signed-target identification success.
+- **Dependencies and story role:** M02–M04, M14, M17, and M25. Gives a joint-test reduction that uses one copy of the learner's memory.
+- **Conceptual connection:** The binary test distributes its response among signed target effects. The bound holds even when the trained memory is consumed.
+- **Source pointers:** W §§1.1.2, 2.3.1, and 3.1.2 for operator coefficients, POVMs, and discrimination. See [reference-secure privacy](../science/reference-secure-privacy.md) for the reduction.
 
 ### M27 — Narrative: Finite compilation must preserve a privacy margin
 
 - **Central question:** How can an ideal private mixed-unitary channel become a finite physical protocol without losing pure privacy?
-- **Understanding target:** Explain a strict randomization margin, an all-input channel approximation bound, and the needed synthesis accuracy of order $`1/d`$. Distinguish privacy of the actual compiled channel from approximation error in its later decoding measurement.
+- **Understanding target:** Use the ordinary-privacy example to connect a strict spectral margin, a channel approximation bound and a synthesis accuracy of order $`1/d`$. For reference protection, identify the joint input directions on which a compiled encoder must preserve the margin. Distinguish an encoder error from an error in the later decoder.
 - **Dependencies and story role:** M05, M07, M13, and M19–M23. Connects the statistical construction to finite operations.
 - **Conceptual connection:** A small absolute channel error can matter to multiplicative privacy when output eigenvalues scale as $`1/d`$; strict slack permits a controlled conversion.
 - **Source pointers:** W §1.1.3 and §§2.2.1–2.2.2 for operator-norm and channel foundations; the explicit channel-error and margin inequalities in [implementation](../science/implementation.md), “Compilation with a strict privacy margin.”
 
 ### M28 — Narrative: Cheap local branches do not make the learner efficient
 
-- **Central question:** Which resources improve in the Pauli-list variant, and which remain expensive?
+- **Central question:** Which resources improve in the ordinary-privacy Pauli-list variant, and which remain expensive?
 - **Understanding target:** Explain classical storage of a good Pauli list, fresh private sampling, public Clifford descriptions, direct Pauli conjugation, and clean local deployment. Account separately for setup selection and certification, output communication, coherent training storage, and collective-decoder construction.
 - **Dependencies and story role:** M03, M05, M13, M23, and M27. Integrates the implementation costs into the scope of the sample advantage.
 - **Conceptual connection:** Exact local Pauli gates and ordinary classical lookup avoid a free QRAM assumption, while the extra polylogarithmic specimens and expensive global steps remain charged.
 - **Source pointers:** W §§2.1–2.3 for registers, channels, and measurements; [implementation](../science/implementation.md), “Exact Pauli gates,” “Source and clean deployment,” and “Resources and setup.”
 
-### M29 — Narrative: Fixed privacy, product records, and the reference boundary
+### M29 — Narrative: Classical feedback and arbitrary quantum memory
 
-- **Central question:** Why does this separation coexist with an entanglement-breaking privacy threshold and leave stronger security questions open?
-- **Understanding target:** Explain the order of limits: privacy is fixed while dimension grows, and the universal entanglement-breaking threshold shrinks with dimension. Distinguish a classical simulation from a simulation preserving the privacy of its latent measurement record; distinguish independent product-record privacy from privacy against arbitrary retained purifications.
-- **Dependencies and story role:** M06–M07, M14, and M26–M28. Reconciles the global learning law with its neighboring physical and privacy regimes.
-- **Conceptual connection:** Non-entanglement-breaking behavior alone is not a learning advantage, and ordinary one-record privacy is not reference-secure privacy.
-- **Source pointers:** W §§2.1.3 and 2.2.1 for references and local channels; [interpretation](../science/interpretation.md), “Relation to the entanglement-breaking privacy boundary” and “Privacy and physical scope,” and [implementation](../science/implementation.md), “Product records and quantum references.”
+- **Central question:** Does the per-report budget still constrain adaptive selection of later encoders?
+- **Understanding target:** Follow reverse relative entropy from the common null, where the classical history supplies target-independent weighting. Use the tensor product of the old memory and fresh report conditional on history, then apply data processing through the learner's instrument. Explain why the resulting lower bound is of order $`dk`$ at fixed privacy.
+- **Dependencies and story role:** M08, M14, M16, M24–M26. Extends the converse to classical feedback with retained quantum memory.
+- **Conceptual connection:** A classical history can control the next encoder while the learner's quantum register remains available for any final joint measurement.
+- **Source pointers:** W §5.2.3 for quantum relative entropy and data processing. See [reference-secure privacy](../science/reference-secure-privacy.md) for the adaptive null calculation.
 
-### M30 — Narrative: Local protection and a learnable population pattern
+### M30 — Narrative: Where quantum reports save specimens
 
-- **Central question:** What can the field understand from the full same-source, same-privacy result?
-- **Understanding target:** Explain how protecting each owner's example can coexist with learning the common pattern, why retaining private quantum reports changes the specimen cost, and which pieces are inherited tools versus the project's operational contribution. State the achieved law together with its encoder, privacy, setup, decoding, and clean-test boundaries.
-- **Dependencies and story role:** M14 and M26–M29, drawing on both proof branches. Integrates the narrative into its scientific consequence.
-- **Conceptual connection:** Local privacy, noncommuting information, and collective learning meet in one controlled comparison; a specimen advantage does not by itself establish a runtime or hardware advantage.
-- **Source pointers:** W §§2.2.1, 3.1.2, and 5.3.3 for the channel-inference-information connection; [model](../science/model.md), “Why the representation matters,” [interpretation](../science/interpretation.md), and [related work](../references/related-work.md), contribution boundaries.
-
+- **Central question:** How does the reference dimension change the same-source comparison?
+- **Understanding target:** State the matching predetermined-encoder order $`\Theta_\varepsilon(dk\log d)`$ for identification and clean prediction. Explain why adaptive classical randomized response attains the $`\Theta_\varepsilon(d^2)`$ full-reference optimum at $`k=d`$. State the intermediate-$`k`$ adaptive lower and upper bounds with the allowed feedback and setup assumptions.
+- **Dependencies and story role:** M14, M18, M23, and M25–M29. Reassembles the project as one comparison across privacy guarantees.
+- **Conceptual connection:** Private channels can preserve entanglement even under full-reference privacy, where adaptive quantum learning and the classical tournament have the same specimen order. Statistical costs and implementation costs are separate.
+- **Source pointers:** [Model](../science/model.md), [reference-secure privacy](../science/reference-secure-privacy.md), [implementation](../science/implementation.md), and [related work](../references/related-work.md).

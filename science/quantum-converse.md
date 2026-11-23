@@ -1,6 +1,6 @@
 # How much information can one private quantum report retain?
 
-The collective identification protocol uses order $`d\log d`$ specimens at fixed privacy. The converse here shows that this order is optimal among **noninteractive product encoders**, even when the quantum decoder is unrestricted. It does not restrict the dimension of a report. It does not establish the optimum for encoders chosen adaptively from previous reports, or a matching lower bound for clean-test prediction alone.
+The collective identification protocol uses order $`d\log d`$ specimens at fixed privacy. The converse here shows that this order is optimal among **noninteractive product encoders**, even when the quantum decoder is unrestricted. It does not restrict the dimension of a report. This chapter supplies the ordinary-privacy identification argument. The [reference-secure chapter](reference-secure-privacy.md) covers clean-test prediction, as well as classical feedback at unrestricted reference privacy.
 
 ## The experiment and the statement
 
@@ -247,6 +247,6 @@ All displayed matrix arguments hold for any finite report dimension, with no dim
 
 ## What this establishes
 
-At fixed positive $`\epsilon`$, the identification protocol's $`O_\epsilon(d\log d)`$ specimen order matches this lower bound in the noninteractive product-encoder model. Quantum outputs and collective decoding are fully allowed in the converse. No claim of a matching clean-prediction lower bound follows: a classifier can have nonzero predictive advantage while identifying only a bounded list of candidate Paulis. Nor does this proof cover quantum encoders selected using previous private outcomes, coherent feedback to an owner, collective processing of raw specimens, or reused private encoder keys.
+At fixed positive $`\epsilon`$, the identification protocol's $`O_\epsilon(d\log d)`$ specimen order matches this lower bound in the noninteractive product-encoder model. Quantum outputs and collective decoding are fully allowed in the converse. The [prediction-to-identification measurement](reference-secure-privacy.md) extends this lower bound to fixed-advantage clean prediction. The ordinary-privacy adaptive quantum optimum remains open.
 
 The tools in this proof are inherited: the Haar/projective-2-design second moment, the Petz order-two relative-entropy bound, the relative-entropy decomposition of Holevo information, Holevo's measurement bound, and classical Fano's inequality. The task-specific step is combining their exact normalizations with all-input local privacy to obtain (Q7) and the per-report $`1/(d-1)`$ information budget. Standard relative-entropy and Holevo foundations are presented in John Watrous, [*The Theory of Quantum Information*](https://cs.uwaterloo.ca/~watrous/TQI/), Chapter 5. The proof above supplies the needed calculation rather than treating these ingredients as new results.

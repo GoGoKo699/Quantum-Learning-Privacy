@@ -150,7 +150,7 @@ For product datasets differing only in record $`j`$, independent reports obey
 
 Tensoring unchanged positive factors preserves order, as does every collective CPTP map and measurement. Thus coherent decoding preserves the stated record-neighbor guarantee. Identifying population parameter $`H`$ is compatible with it: changing $`H`$ changes all specimens.
 
-This argument does not prove privacy when the changed record is entangled with a retained reference or other raw records. The definition imposed no corresponding inequality on $`\Lambda\otimes\mathrm{id}_R`$ for such joint states. The source and record-neighbor extension use independent specimens; reference-secure privacy is not claimed.
+This argument does not prove privacy when the changed record is entangled with a retained reference or other raw records. The definition imposed no corresponding inequality on $`\Lambda\otimes\mathrm{id}_R`$ for such joint states. The record-neighbor argument uses independent specimens. For the stronger privacy guarantee, use the reference-bounded construction and matching statement in [reference-secure learning](reference-secure-privacy.md).
 
 ## Sources
 

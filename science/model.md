@@ -2,7 +2,7 @@
 
 A data owner can hide one quantum example before releasing it, while a learner still discovers a pattern shared by many owners. The representation of that private release matters. Here the same labeled quantum source is supplied to both learners: one receives private classical reports, and the other may retain private quantum reports until a collective measurement.
 
-The resulting sample separation survives every fixed positive local-privacy level as the number of qubits grows. It does not rely on replacing classical examples with more informative quantum examples. It compares two ways of releasing the same native quantum data under the same privacy definition.
+With ordinary local privacy the two ways of releasing these examples have different sample costs. [Reference-secure privacy](reference-secure-privacy.md) adds a retained reference to the privacy comparison and quantifies how the separation changes as its dimension grows.
 
 ## The source
 
@@ -43,7 +43,7 @@ The order is the positive-semidefinite, or Loewner, order. Equivalently, every e
 
 The label is public and is not protected. Privacy must hold conditional on that label, the preceding available classical history, and every public random choice. Any additional flag released with the quantum or classical report is included in the channel output. The private random index discarded inside a channel is not released. Averaging away a flag that the recipient actually receives cannot establish privacy of that recipient's view; [the register example](privacy-registers.md) makes the distinction explicit.
 
-This is the ordinary, unassisted-input QLDP definition. It is not a guarantee for arbitrary correlations with an external reference, and it is not a diamond-norm replacement-channel promise. With independent product inputs, the one-record Loewner inequality remains valid after tensoring the other fixed reports and applying a collective measurement. Learning the common target from many different owners is compatible with local protection of each owner's individual example.
+This is ordinary, unassisted-input QLDP. Its reference-secure extension compares joint inputs with the same marginal on a retained reference of dimension at most $`k`$, after the channel acts locally on the specimen. The reference changes the privacy requirement, while the training source below still supplies independent specimens. With independent product inputs, the one-record Loewner inequality remains valid after tensoring the other fixed reports and applying a collective measurement. Learning the common target from many different owners is compatible with local protection of each owner's individual example.
 
 ## The two reporting models
 
@@ -68,7 +68,7 @@ In **identification**, the learner outputs the signed Pauli $`\widehat H`$. Uppe
 
 In **clean-test prediction**, training ends before one fresh, unprivatized specimen $`\rho_{H,Y}`$ arrives with its label hidden. The learner predicts $`Y`$. A classical training transcript may specify any binary test POVM. A constant advantage $`\beta\in(0,1/2)`$ means success at least $`1/2+\beta`$ for every target, averaged over training and test randomness. Privacy of the training reports is the constraint; a constant-accuracy claim for privatized test specimens is not made.
 
-Identification with error $`\delta`$ gives clean-test success at least $`1-\delta`$: on correct identification, a local Pauli measurement is exact. The reverse implication is not assumed. The classical prediction converse is proved directly using a bounded-size list extracted from the learned test observable.
+Identification with error $`\delta`$ gives clean-test success at least $`1-\delta`$: on correct identification, a local Pauli measurement is exact. The [prediction-to-identification reduction](reference-secure-privacy.md) gives a bounded-success identifier from any fixed-advantage predictor, including a predictor with a consumable quantum model. The classical prediction converse also follows directly from a bounded-size list extracted from the learned test observable.
 
 ## Principal results
 
@@ -81,9 +81,11 @@ For every fixed $`\varepsilon>0`$, fixed $`\delta\in(0,1/2)`$, and fixed $`\beta
 | Identification, noninteractive private quantum product encoders | $`\Theta_{\varepsilon,\delta}(d\log d)`$ | [Coherent construction](quantum-reports.md), [quantum converse](quantum-converse.md) |
 | Identification with an exact tensor-Pauli local implementation and a fixed good setup list | $`O_{\varepsilon,\delta}(d(\log d)^7)`$ | [Pauli implementation](implementation.md) |
 
-The quantum upper also supplies clean-test prediction at the same sample order. Its order is not claimed optimal for prediction alone. For $`n`$ qubits, the principal identification orders are $`\Theta(n2^n)`$ and $`\Theta(4^n)`$ at fixed privacy and confidence. Both grow exponentially in $`n`$; their ratio is exponential as well.
+For $`n`$ qubits under ordinary privacy, the predetermined-quantum and adaptive-classical orders are $`\Theta(n2^n)`$ and $`\Theta(4^n)`$, respectively, at fixed privacy and confidence. These orders hold for both identification and fixed-advantage clean prediction.
 
-The fixed-privacy limit matters: $`\varepsilon`$ is held independent of $`d`$. The randomizer construction requires sufficiently large $`d`$, with its actual list length $`K\le d^2/2`$. No uniform interpolation to $`\varepsilon\sim1/d`$, finite crossover claim, or optimal adaptive-quantum law is included.
+The [reference-secure theorem](reference-secure-privacy.md) extends the predetermined-encoder law to $`\Theta(dk\log d/\varepsilon^2)`$ for $`1\leq k\leq d`$ and $`0<\varepsilon\leq1`$. With unrestricted reference privacy, the adaptive optimum is $`\Theta(d^2/\varepsilon^2)`$ even with arbitrary retained quantum memory. The feedback chooses the next local encoder using a classical history.
+
+The short-list construction in the ordinary-privacy chapter uses an actual list length $`K\leq d^2/2`$. The reference-secure proof uses a constant-distortion list and separately tunes privacy by an input-independent replacement branch. It gives uniform small-$`\varepsilon`$ scaling and leaves the optimal quantum rate with adaptive encoders open for intermediate reference dimensions.
 
 ## Why the representation matters
 

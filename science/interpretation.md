@@ -23,7 +23,7 @@ N_{\mathrm C}=\Theta(4^n),\qquad
 N_{\mathrm Q,prod}=\Theta(n2^n).
 ```
 
-The quantum product-encoder cost is optimal in its stated class. The classical converse permits adaptive encoders and unlimited classical computation. The same quantum protocol learns a clean-test classifier, while any private classical learner attaining fixed positive clean-test advantage still needs order $`4^n`$ training specimens. A matching quantum lower bound for prediction alone is not established.
+The quantum product-encoder cost is optimal in its stated class. The classical converse permits adaptive encoders and unlimited classical computation. The same quantum protocol learns a clean-test classifier, while any private classical learner attaining fixed positive clean-test advantage still needs order $`4^n`$ training specimens. The [prediction-to-identification measurement](reference-secure-privacy.md) gives the matching product-encoder lower bound for prediction, including a consumable quantum model.
 
 The comparison is statistical. Both costs are exponential in the number of qubits. Generic randomizer setup and collective decoding can also be expensive. The exact Pauli implementation reduces the per-report quantum gates at a larger polylogarithmic sample cost; it does not supply an efficient decoder or efficiently certified setup.
 
@@ -39,11 +39,11 @@ They also show that learning from entanglement-breaking outputs with quantum mem
 
 The universal entanglement-breaking threshold shrinks with dimension. The present separation holds at every fixed positive $`\varepsilon`$ for sufficiently large $`d`$, and so does not contradict it. It supplies an operational surviving advantage in that regime. Non-entanglement-breaking behavior alone would not have proved such a learning advantage.
 
-The good-list construction used here does not determine the sharp transition as $`\varepsilon`$ decreases with $`d`$. Its actual list length and the condition $`K\le d^2/2`$ remain part of the finite theorem. A fixed-$`\varepsilon`$ asymptotic statement cannot be substituted for an arbitrary joint limit.
+The original short-list construction alone does not determine the sharp transition as $`\varepsilon`$ decreases with $`d`$. Its actual list length and the condition $`K\le d^2/2`$ remain part of the finite theorem. The reference-secure chapter gives uniform small-privacy scaling by mixing a constant-distortion list with exact replacement.
 
 ## Privacy and physical scope
 
-The privacy definition quantifies over every unassisted input state and every measurement of the actual released register. It covers public flags and collective measurements of independently privatized product records. It does not assert privacy against arbitrary retained purifications, complete reference-aware privacy, or secrecy of the common target across an entire population.
+Ordinary privacy covers all unassisted input states and measurements of the actual release. Reference-secure privacy also covers joint measurements with a retained quantum reference and compares inputs with the same reference marginal. At fixed privacy, the [proof](reference-secure-privacy.md) bounds the average squared response per Pauli by order $`1/(dk)`$, so the cost for predetermined quantum encoders grows linearly with $`k`$. At full reference protection the adaptive classical tournament reaches the same specimen order as arbitrary retained quantum memory. The protection still concerns each owner's release. Learning the shared population target remains the task.
 
 The source is classical data only in its labels; its features are native quantum specimens. Every feature state is separable across its qubits. In the Pauli-list implementation, each realized branch is a tensor product of Pauli gates, so individual quantum reports remain separable as well. The quantum resource is retaining reports for joint processing across examples. The randomly selected tensor-Pauli pattern can be correlated across qubits within one specimen; a product of separately chosen single-qubit private channels would be a different mechanism.
 
