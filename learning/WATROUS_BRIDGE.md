@@ -23,7 +23,7 @@ An owner applies one channel $`\Lambda`$ before release. Conditional on the publ
 \quad\text{for every pair of input density operators }\rho,\sigma.
 ```
 
-This is a statement about the actual output register and every measurement of it. It protects an unassisted input state; it does not claim privacy of arbitrary correlations with a retained reference system. Raw specimens are not pooled before privatization.
+This is ordinary input-state privacy. To protect a retained reference of dimension at most $`k`$, compare the joint outputs for any two joint inputs with the same reference marginal. The protected reference is a register in the privacy test. The learner may keep an arbitrary quantum memory and raw specimens are privatized independently.
 
 A final collective measurement may discover $`H`$ from many independent private reports. Local privacy protects one record; it does not require the common population pattern to remain hidden.
 
@@ -37,11 +37,11 @@ The route below follows the dependencies of this project. Completing the full te
 | Represent local release and discarded randomness | §§2.2.1–2.2.2, pp.72–90; Theorem 2.22 | A channel includes private ancillas and discarded environments; a released flag is an additional output. |
 | Write a classical report as a POVM | §2.3.1, p.100 onward; Definition 2.34 | Input-state privacy becomes an eigenvalue-ratio constraint on every report effect. |
 | Measure total response in a Pauli basis | §1.1.2, Eq.(1.81), p.15; §1.1.3, p.24 onward | Apply the operator inner product to the normalized tensor-Pauli basis; the private-effect variance calculation is local to the project. |
-| Relate prediction to discrimination | §§3.1.1–3.1.2, pp.125–138; Theorem 3.4, p.128 | A learned binary test is a POVM. Correct identification supplies a perfect clean-test measurement, but prediction need not identify the target. |
+| Relate prediction to discrimination | §§3.1.1–3.1.2, pp.125–138; Theorem 3.4, p.128 | A learned binary test is a POVM. Identification supplies the clean measurement. The project supplies a converse from prediction even when the test acts jointly on quantum memory and the clean system. |
 | Combine weak quantum reports | Definition 3.11, p.139; §3.2.2 and Theorem 3.22, p.151 | Use root fidelity, a project-specific spectral estimate, then an imported quantitative mixed-state discrimination bound. |
 | Bound information in reports | §§5.1.1–5.1.2, pp.250–264; §§5.2.1–5.2.3, pp.265–282; Theorem 5.35, p.280 | Classical transcript chain rules and a quadratic quantum-response bound supply the two converses. |
 | Turn information into identification cost | §5.3.3, p.294 onward; Theorem 5.49, p.299 | Combine the Holevo bound with the general finite-alphabet Fano calculation written below. |
-| Average over unknown directions | §7.1.1, p.391 onward; §7.2.1 and Lemma 7.24, p.416 | Specialize the symmetric-projector moment to two copies, then apply it to the Pauli response budget. |
+| Average over unknown directions | §7.1.1, p.391 onward; §7.2.1 and Lemma 7.24, p.416 | Compare the two-copy pure-state moment with the rank-projector calculation used for reference protection. |
 
 The [30 milestones](MILESTONES.md) place these foundations before the project's privacy and learning arguments. The [scientific model](../science/model.md) remains authoritative for theorem domains.
 
@@ -110,6 +110,21 @@ It retains a weak response in the unknown target direction. The learner still ha
 
 For equal public labels, root fidelity between two reports from opposite target signs is $`\sqrt{3}/2`$; between perpendicular target axes it is $`\sqrt{7/8}`$. These are explicit mixed-qubit values below one. They illustrate why many weak reports can be discriminated collectively. The large-dimension theorem uses a different randomizer whose response budget scales more favorably than depolarization.
 
+### What changes when a reference is kept
+
+In the reference test, the two candidate joint inputs to the report have the same marginal on the kept reference $`R`$. The classical report above keeps its $`\log 3`$ guarantee for every reference size. In each sign branch, the eigenvalue bounds on $`E_z`$ put the unnormalized reference output between $`\rho_R/4`$ and $`3\rho_R/4`$. Positivity is preserved when the measurement outcome is obtained by a partial trace.
+
+For the quantum report, compare two different Bell states. Each has reference marginal $`I/2`$. Writing $`\Lambda_a`$ for the depolarizing channel with retention $`a`$, the output on a Bell state $`\Phi`$ is
+
+```math
+(\Lambda_a\otimes\mathrm{id})(\Phi)
+=a\Phi+(1-a)\frac{I_4}{4}.
+```
+
+Measuring the projector onto the first Bell state gives event probabilities $`(1+3a)/4`$ and $`(1-a)/4`$. At the original retention $`a=1/2`$, their ratio is 5. This pair alone defeats a full-reference budget of $`\log 3`$. The ratio 5 also bounds the worst pair. For every pure two-qubit input $`\psi`$, Schmidt decomposition and Cauchy–Schwarz give $`\psi\preceq 2 I_2\otimes\rho_R`$. The inequality extends to mixed inputs, so each joint output lies between $`(1-a)I_2\otimes\rho_R/2`$ and $`(1+3a)I_2\otimes\rho_R/2`$. Choosing $`a=1/3`$ therefore restores $`\log 3`$ privacy for the full reference while retaining a weaker signal.
+
+The retained reference here is part of the privacy test. The learner's memory is built from reports during training and appears in a different part of the argument.
+
 ### Why a hidden random choice must stay hidden
 
 The same channel has the random-Pauli realization
@@ -167,7 +182,7 @@ where $`F`$ swaps the copies. Pauli orthogonality turns it into
 
 for nonidentity Paulis. The project applies this to a private channel, obtaining an average target-information budget of order $`1/d`$ per report at fixed privacy.
 
-The inequality bounding quantum relative entropy by a quadratic Petz expression is proved directly in [the quantum converse](../science/quantum-converse.md); it is not attributed to an unverified textbook theorem. The same chapter explains why Holevo information can be summed for the predetermined product encoders considered here. Quantum adaptivity would change that argument.
+The inequality bounding quantum relative entropy by a quadratic Petz expression is proved directly in [the quantum converse](../science/quantum-converse.md); it is not attributed to an unverified textbook theorem. The same chapter explains why Holevo information can be summed for the predetermined product encoders considered here. The reverse-null comparison below handles classical feedback with a retained quantum memory.
 
 For completeness, the general finite-alphabet Fano step is elementary. Let $`H`$ be uniform on $`L`$ targets and let $`\widehat H`$ have error probability $`\delta`$. Introduce the binary error indicator. Conditional on an error, at most $`L-1`$ target values remain, so
 
@@ -185,11 +200,28 @@ I(H:\widehat H)
 
 Watrous's Holevo theorem controls the information accessible to the final measurement. The displayed general Fano form is supplied here; the book's Lemma 5.54 concerns a binary special case.
 
+### Larger references tighten the report budget
+
+Watrous's purification and Choi representations explain why a reference of dimension $`k`$ reveals directions associated with Schmidt rank up to $`k`$. In the [reference-secure construction](../science/reference-secure-privacy.md), an operator-spectral estimate on these directions gives a channel whose every tested output lies near replacement in positive-semidefinite order. The list of hidden unitaries has length $`O(dk)`$. The estimate requires a single good list simultaneously valid on all rank-constrained directions. Its public orientation is permitted because the same guarantee holds in each orientation.
+
+The per-report converse tests a maximally entangled input supported on a random $`k`$-dimensional subspace against a decorrelated input with the same reference marginal. Unitary invariance reduces the projector's second moment to the identity and the swap. This is the rank-$`k`$ extension of the pure-state moment above. In the Pauli basis, the resulting budget bounds averaged target divergences by order $`\varepsilon^2/(dk)`$ for $`0\lt\varepsilon\le1`$. Positive-semidefinite order controls support during the conversion into both directions of relative entropy.
+
+Predetermined encoders accumulate the forward budget and use Holevo and Fano to identify the signed target. When a classical history chooses the next encoder, the reverse comparison instead averages histories under the same null for every target. The fresh report joins the previously retained quantum state by a tensor product conditional on that history. The learner can then apply an arbitrary joint instrument. Relative-entropy data processing gives the adaptive lower bound without imposing a dimension bound on the learner's memory.
+
+### Turn one prediction test into an identification measurement
+
+Watrous's notation for POVMs gives a single binary observable $`B`$ on trained memory and a clean test system. Let $`A_P`$ be the operator on memory obtained by taking the Pauli coefficient of $`B`$ on the test system. The partial trace of $`B^2`$ gives the operator-valued Parseval inequality
+
+```math
+\sum_{P} A_P^2=\frac{\mathrm{Tr}_{\rm test}(B^2)}{d}\preceq I.
+```
+
+For a signed target $`\pm P`$, the effect $`(\pm A_P)_+^2`$ uses the squared positive part, retaining only the eigenvalues with the required sign. The effects sum to at most identity because the two signed effects for each Pauli sum to $`A_P^2`$. Completing them by a failure effect gives an identification POVM on one copy of the trained quantum memory. Clean prediction advantage $`\beta`$ gives signed identification success of at least $`4\beta^2`$ in the same worst-case or prior-average convention. This transfers the identification converses to a joint prediction test that consumes its memory.
+
 ## Reassemble the claim with its limits
 
-At each fixed positive $`\varepsilon`$ and fixed bounded identification error, the established orders are $`\Theta_\varepsilon(d^2)`$ for adaptive private classical reports and $`\Theta_\varepsilon(d\log d)`$ for noninteractive private quantum product encoders. The quantum construction also learns a clean-test classifier; its prediction cost alone is not proved optimal.
+At fixed positive privacy and fixed performance, the specimen cost of predetermined local encoders is $`\Theta_\varepsilon(dk\log d)`$ for signed identification and clean prediction. The order becomes $`\Theta(dk\log d/\varepsilon^2)`$, uniformly for $`0\lt\varepsilon\le1`$. At $`k=1`$ this gives the original quantum identification order and a matching quantum prediction cost. The adaptive lower bound is $`\Omega_\varepsilon(dk)`$, attained at full reference dimension $`k=d`$ by the classical noisy tournament, which remains valid for every reference dimension.
 
-These statements use independent native specimens, public labels, all-input ordinary QLDP, a complete accounting of accessible flags, and a fixed-privacy large-dimension limit. They exclude raw collective preprocessing and hidden keys shared between owners. General randomizer descriptions and collective decoding can be expensive. The tensor-Pauli implementation has a larger polylogarithmic specimen cost and does not establish efficient setup certification. Quantum storage, source preparations, communication and clean deployment are charged in [implementation](../science/implementation.md).
+The model uses independent native specimens, public labels, one private release per specimen, fresh local randomness and a clean deployment test. Feedback in the adaptive analysis is classical. Randomizer setup, certification, synthesis, communication, coherent storage and collective decoding are separate costs. The tensor-Pauli implementation for ordinary privacy uses more specimens by a polylogarithmic factor. See [implementation](../science/implementation.md) for the resource accounting and [reference-secure privacy](../science/reference-secure-privacy.md) for the adaptive bounds at intermediate reference size.
 
-The [milestone map](MILESTONES.md) connects the foundations and these project steps into one scientific route.
-
+The [milestone map](MILESTONES.md) connects these steps from one report through the full-reference comparison.

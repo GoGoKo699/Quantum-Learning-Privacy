@@ -18,6 +18,9 @@ These are finite checks of specific proof risks. They supplement the analytical 
 | Tournament budgets | 72 settings; dimensions 2 through 256, four privacy levels, three target failures | Rounding the per-arm sample counts, bracket padding, summing the true arm's analytic failure bounds, and the displayed total-cost formula |
 | Bounded-spectrum Bures inequality | 240 state pairs; dimensions 2, 3, 4, 8; three spectral bands; equal-state endpoint | Root fidelity versus squared fidelity, matrix-order normalization, and the dimension-dependent constant in the Hilbert–Schmidt bound |
 | Quantum information budget | A nonunital qubit channel and its four-dimensional singular-support embedding; exact six-state projective 2-design | Haar/Pauli normalization, support inverses, noncommuting Petz bounds, and the one-report Holevo calculation |
+| Compressed Pauli moment | All 24 one-qubit and all 11,520 two-qubit Clifford actions up to global phase, with every compression rank in each dimension | The two coefficients of the projector tensor moment and the resulting factor `(dk−1)/(d²−1)` |
+| Prediction and signed identification | Binary test observables on input dimensions 2, 4, and 8 with pure and mixed quantum memories | Operator Parseval, POVM completeness, signed Born probabilities and the square of the prediction score |
+| Reference-privacy examples | Nine transpose-depolarizing channels and a rank-three qubit random-unitary channel | Choi spectral ratio, the partial-transpose eigenvalue and an event that detects a missing Bell component |
 
 The private POVMs are constructed by two controlled families. The first randomizes a projective measurement. The second starts with a normalized rank-one POVM of unequal trace weights and mixes each effect with its trace-weighted identity. The script checks the resulting spectral ratio and then evaluates every nonidentity Pauli in the stated dimension. Target probabilities are computed directly by the Born rule before being compared with the signed likelihood identity. Relative entropies are evaluated in the reference-to-target direction required by the adaptive proof.
 
@@ -29,9 +32,11 @@ The Bures check generates density matrices with a controlled spectral upper boun
 
 The quantum information-budget check uses an amplitude-damping channel mixed with a full-rank replacement state. Its privacy follows analytically from the output spectral interval on its support; it is not inferred from sampled inputs. The six Pauli eigenstates form an exact qubit projective 2-design. The check evaluates the whitened quadratic identity, the Petz relative-entropy bound and the one-report Holevo quantity for genuinely noncommuting outputs. An isometric embedding with a zero output block checks that support-restricted inverses preserve those quantities. The independent check can also be run as `python3 verification/check_quantum_budget.py`.
 
+The reference-privacy check enumerates the Clifford moments in two input dimensions, computes both sides of the compression identity and checks every rank, including one and full dimension. It independently computes the clean prediction probability by the Born rule and tests the positive-part measurement that extracts a signed Pauli from the retained quantum memory. The two Choi examples isolate the missing-support obstruction and show that a reference-private channel can preserve entanglement. Run these checks independently with `python3 verification/check_reference_privacy.py`.
+
 ## What these checks do not establish
 
-The checks do not certify that a sampled approximate-randomizing channel is private for every input. They do not find or certify a good randomizer list, establish general asymptotic bounds, prove the existence theorems used for randomizers, compile or time a pretty-good measurement, establish efficient learning, or show optimality against adaptive quantum encoders. They do not replace the adaptive relative-entropy chain-rule proof, the prediction-to-list argument, or a literature comparison.
+The analytical arguments establish the all-input guarantees, existence of a valid randomizer list, sample bounds and limits of adaptive quantum encoding. The program checks finite instances of the identities and inequalities used in those arguments. It supplies neither a randomizer setup list nor a circuit for the collective decoder.
 
 No randomizer privacy claim is inferred from testing random input states. In particular, a successful run is not an all-state privacy certificate for an unrelated numerical channel.
 

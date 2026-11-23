@@ -130,6 +130,59 @@
     "maximum_signed_reverse_kl_over_bound": 0.999061675,
     "trials_per_setting": 10
   },
+  "reference_private_reports": {
+    "choi_privacy_examples": {
+      "maximum_spectral_identity_error": 0.0,
+      "missing_bell_event_entangled_input_probability": 0.0,
+      "missing_bell_event_mixed_input_probability": 0.25,
+      "negative_partial_transpose_cases": 3,
+      "transpose_depolarizing_cases": 9
+    },
+    "compressed_pauli_moment": {
+      "cases": [
+        {
+          "gamma": 0.333333333,
+          "input_dimension": 2,
+          "reference_dimension": 1
+        },
+        {
+          "gamma": 1.0,
+          "input_dimension": 2,
+          "reference_dimension": 2
+        },
+        {
+          "gamma": 0.2,
+          "input_dimension": 4,
+          "reference_dimension": 1
+        },
+        {
+          "gamma": 0.466666667,
+          "input_dimension": 4,
+          "reference_dimension": 2
+        },
+        {
+          "gamma": 0.733333333,
+          "input_dimension": 4,
+          "reference_dimension": 3
+        },
+        {
+          "gamma": 1.0,
+          "input_dimension": 4,
+          "reference_dimension": 4
+        }
+      ],
+      "ensemble_sizes": [
+        24,
+        11520
+      ],
+      "maximum_tensor_or_response_error": 0.0
+    },
+    "signed_prediction_extraction": {
+      "clean_test_and_identification_cases": 972,
+      "maximum_parseval_or_born_error": 0.0,
+      "strictly_positive_signed_score_cases": 486
+    }
+  },
   "rounding_decimal_places": 9,
   "schema_version": 1,
   "seed": 20261115,

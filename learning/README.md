@@ -1,19 +1,16 @@
 # Learn private quantum learning
 
-The single educational anchor is **John Watrous, *The Theory of Quantum Information* (2018)**. The [source-to-project bridge](WATROUS_BRIDGE.md) identifies selective textbook locations, translates notation, and develops one complete qubit experiment before connecting the foundations to the proofs.
+The single educational anchor is **John Watrous, *The Theory of Quantum Information* (2018)**. The [source-to-project bridge](WATROUS_BRIDGE.md) selects textbook sections and works through a one-qubit example where a reference changes the privacy budget.
 
-The scientific question is concrete: when the same labeled quantum example is locally privatized, does releasing a quantum system preserve more useful learning information than releasing an optimized classical report? The answer compares private reports on the same native source. It separates the amount of training data from the cost of implementing the learner.
+Each owner sends one private report from a labeled quantum specimen. The learning question is how much useful information that report can retain while protecting input correlations with a reference of dimension $`k`$. The reference belongs to the privacy test. The learner's retained quantum memory is a separate register and has no dimension bound in the converse.
 
 | Reading goal | Route |
 |---|---|
-| Understand what is supplied and protected | [Scientific model](../science/model.md), then the [qubit experiment](WATROUS_BRIDGE.md#a-complete-one-qubit-experiment) |
-| Translate the selected book into project notation | [Reading map and convention dictionary](WATROUS_BRIDGE.md#selective-reading-map) |
-| Follow the complete conceptual dependencies | [30 milestones](MILESTONES.md): 14 background milestones and 16 narrative milestones |
-| Understand why the released register matters | [Privacy registers](../science/privacy-registers.md) |
-| Read the arguments in their authoritative form | [Classical reports](../science/classical-reports.md), [quantum reports](../science/quantum-reports.md), and [quantum converse](../science/quantum-converse.md) |
-| Assess the resource meaning and limits | [Interpretation](../science/interpretation.md) and [implementation](../science/implementation.md) |
+| Identify the source and protected registers | [Scientific model](../science/model.md), then the [one-qubit example](WATROUS_BRIDGE.md#a-complete-one-qubit-experiment) |
+| Find the quantum information foundations | [Watrous reading map](WATROUS_BRIDGE.md#selective-reading-map) |
+| Follow the proof dependencies | [30 milestones](MILESTONES.md), with 14 background and 16 narrative milestones |
+| See how classical reports learn the target | [Classical reports](../science/classical-reports.md) |
+| See how reference protection changes quantum reports | [Reference-secure privacy](../science/reference-secure-privacy.md), building on [quantum reports](../science/quantum-reports.md) |
+| Track the physical costs | [Interpretation](../science/interpretation.md) and [implementation](../science/implementation.md) |
 
-The bridge labels three sources of reasoning: foundations from Watrous; imported research ingredients such as approximate randomization and quantitative state discrimination; and the private-response and learning arguments proved in this project. Research references are dependencies and attribution, rather than additional educational anchors.
-
-The result keeps privacy at a fixed positive level while dimension grows. Its quantum identification optimum concerns noninteractive product encoders; the classical converse allows adaptive private measurements. Clean prediction uses a fresh unprivatized test specimen. Ordinary input-state privacy does not supply a general reference-system privacy guarantee. These scopes remain part of the learning route.
-
+Training and deployment use the same signed-Pauli source. Training owners release independently privatized specimens with public labels. Prediction uses one fresh clean test specimen. Predetermined local encoders need $`\Theta_\varepsilon(dk\log d)`$ specimens for either task at fixed positive privacy and fixed performance. When classical feedback can choose later encoders, the lower bound is $`\Omega_\varepsilon(dk)`$. At $`k=d`$ the classical tournament attains that order.
